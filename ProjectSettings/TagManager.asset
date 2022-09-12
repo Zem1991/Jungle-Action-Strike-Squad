@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - Interactable
+  - Item
+  - Character
+  - Projectile
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Terrain
+    uniqueID: 3102662443
+    locked: 0
+  - name: Water
+    uniqueID: 766246673
+    locked: 0
+  - name: Move Area
+    uniqueID: 1436432459
+    locked: 0
+  - name: Move Path
+    uniqueID: 3537956303
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2945035785
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Item
+    uniqueID: 1358118273
+    locked: 0
+  - name: Character
+    uniqueID: 3405640417
+    locked: 0
+  - name: Projectile
+    uniqueID: 3308775041
+    locked: 0
+  - name: Highlight
+    uniqueID: 4031620487
+    locked: 0
+  - name: Popup
+    uniqueID: 2351555617
+    locked: 0
+  - name: Fog of War
+    uniqueID: 2951119991
+    locked: 0

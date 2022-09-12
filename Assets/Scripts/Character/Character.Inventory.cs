@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public partial class Character : MonoBehaviour
+{
+    [Header("Inventory")]
+    [SerializeField] private Inventory inventory;
+    public Inventory Inventory { get => inventory; private set => inventory = value; }
+
+    public Weapon GetMainWeapon()
+    {
+        return Inventory.GetMainWeapon();
+    }
+
+    public UsableItem GetUsableItem()
+    {
+        return Inventory.GetUsableItem();
+    }
+
+    public Item GetPrimaryItem()
+    {
+        return Inventory.GetPrimaryItem();
+    }
+
+    public Weapon GetSidearm()
+    {
+        return Inventory.GetSidearm();
+    }
+}
