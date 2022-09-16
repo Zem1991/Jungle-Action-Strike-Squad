@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Effect : MonoBehaviour
+//[CreateAssetMenu(menuName = "JASS/Effect/")]
+public abstract class Effect : ScriptableObject//MonoBehaviour
 {
     //[Header("Abstract Effect")]
     //[SerializeField][Range(0F, 2F)] private float skillInfluence = 1F;

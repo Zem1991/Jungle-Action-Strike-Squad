@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Ammunition : Item
 {
-    [Header("Ammunition")]
+    [Header("Ammunition General")]
+    [SerializeField] private AmmunitionType type;
+    [SerializeField] private Resource amount;
+    public AmmunitionType Type { get => type; private set => type = value; }
+    public Resource Amount { get => amount; private set => amount = value; }
+    
+    [Header("Ammunition Projectile")]
     [SerializeField] private Projectile projectile;
     [SerializeField] private int pelletAmount = 1;
     [SerializeField] private int pelletSpread = 0;
-    [SerializeField] private Resource amount;
     public Projectile Projectile { get => projectile; private set => projectile = value; }
     public int PelletAmount { get => pelletAmount; private set => pelletAmount = value; }
     public int PelletSpread { get => pelletSpread; private set => pelletSpread = value; }
-    public Resource Amount { get => amount; private set => amount = value; }
 
     //public void Shoot(Character actor, Weapon2 weapon, Vector3 direction)
     //{

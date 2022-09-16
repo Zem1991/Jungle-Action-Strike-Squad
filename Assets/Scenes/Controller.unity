@@ -149,6 +149,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2066491038}
   m_RootOrder: 4
@@ -180,6 +181,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 229409932}
   m_RootOrder: 1
@@ -239,6 +241,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 414416039}
   - {fileID: 196024026}
@@ -271,6 +274,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2066491038}
   m_RootOrder: 0
@@ -302,6 +306,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 229409932}
   m_RootOrder: 0
@@ -412,9 +417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ed427baba86e94e88758925bbbde60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textPopupPrefab: {fileID: 5891864439525761649, guid: 42f1c949e60a70a418adecbd07aaab5d, type: 3}
   timer: 0
   message: 
-  textPopupPrefab: {fileID: 5891864439525761649, guid: 42f1c949e60a70a418adecbd07aaab5d, type: 3}
 --- !u!114 &457646038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +442,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -482,6 +488,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -513,6 +520,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -529,11 +537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f094ffd8506473a42b939c972956eca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endTurn1: 8
-  endTurn2: 279
   inCombat: 0
   turnNumber: 0
   turnPhase: 0
+  endTurn1: 8
+  endTurn2: 279
 --- !u!1001 &590893505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,6 +632,7 @@ Transform:
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
   m_LocalPosition: {x: 10, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 1705416829}
@@ -1014,6 +1023,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current: {fileID: 0}
+  inventoryItemBeginDrag: {fileID: 0}
+  inventorySlotPointerEnter: {fileID: 0}
+  window: 105
 --- !u!4 &786188715
 Transform:
   m_ObjectHideFlags: 0
@@ -1024,6 +1036,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1108,6 +1121,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622985956}
   m_RootOrder: 0
@@ -1140,6 +1154,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1156,6 +1171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d826a48e6e5dafc47be121a6ab6ac164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  current: {fileID: 0}
+  actor: {fileID: 0}
+  slot: {fileID: 0}
   cursorDecision: 324
   cycleTarget: 9
   confirmTarget: 32
@@ -1166,10 +1185,6 @@ MonoBehaviour:
   context2Command: 101
   reloadCommand: 114
   throwCommand: 116
-  button: {fileID: 0}
-  current: {fileID: 0}
-  actor: {fileID: 0}
-  slot: {fileID: 0}
 --- !u!114 &970370942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,9 +1459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058a7c7550a731a45a02667ebd18a49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAxisX: Mouse X
-  moveAxisZ: Mouse Y
-  cameraDrag: 325
   cursorHolder: {fileID: 0}
   allowBorderCameraScroll: 0
   usingCursorCamera: 0
@@ -1456,6 +1468,9 @@ MonoBehaviour:
   worldPosition: {x: 0, y: 0, z: 0}
   gridPosition: {x: 0, y: 0, z: 0}
   levelTile: {fileID: 0}
+  moveAxisX: Mouse X
+  moveAxisZ: Mouse Y
+  cameraDrag: 325
 --- !u!4 &1331936180
 Transform:
   m_ObjectHideFlags: 0
@@ -1466,6 +1481,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1953464792}
   m_Father: {fileID: 0}
@@ -1563,6 +1579,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2066491038}
   m_RootOrder: 10
@@ -1608,6 +1625,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1646,6 +1664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a752132ac2b08744c9c67f17a00041b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraHolder: {fileID: 0}
+  levelGridSlot: {fileID: 0}
   moveAxisX: Horizontal
   moveAxisZ: Vertical
   zoomAxisZ: Mouse ScrollWheel
@@ -1653,8 +1673,6 @@ MonoBehaviour:
   lookModifier: 306
   centerCamera: 32
   cameraDefaults: 278
-  cameraHolder: {fileID: 0}
-  levelGridSlot: {fileID: 0}
 --- !u!4 &1705416829
 Transform:
   m_ObjectHideFlags: 0
@@ -1665,6 +1683,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 622985956}
   m_Father: {fileID: 0}
@@ -1699,7 +1718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5092247a92e3cc41aab96c491f9b7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleAlts: 308
   characterPrefab: {fileID: 784648060341957124, guid: 4d6b520a000c9cc469142166765553a1, type: 3}
   moveAreaSprite: {fileID: 21300000, guid: 1a1eec4d016769f4c8be969beba75286, type: 3}
   cursorTile: {fileID: 0}
@@ -1711,6 +1729,7 @@ MonoBehaviour:
   effectiveAim: {fileID: 0}
   usingAlternatives: 0
   characterList: []
+  toggleAlts: 308
 --- !u!4 &1731470485
 Transform:
   m_ObjectHideFlags: 0
@@ -1721,6 +1740,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3414863346646581897}
   - {fileID: 426493892}
@@ -1782,6 +1802,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -1812,6 +1833,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2066491038}
   m_RootOrder: 12
@@ -1846,6 +1868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1878,6 +1901,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1909,6 +1933,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1331936180}
   m_RootOrder: 0
@@ -2478,6 +2503,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 262776589}
   - {fileID: 1203373883}
@@ -2576,8 +2602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a947f7762693244abe78436df978d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideAll: 0
-  toggleAlts: 304
   localPlayerUI: {fileID: 0}
   enemyPlayerUI: {fileID: 0}
   selectionUI: {fileID: 0}
@@ -2591,6 +2615,8 @@ MonoBehaviour:
   levelUI: {fileID: 0}
   hidingAll: 0
   usingAlternatives: 0
+  hideAll: 0
+  toggleAlts: 304
 --- !u!1001 &1790840528764640805
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,27 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedWeapon : Weapon
+public partial class RangedWeapon : Weapon
 {
     [Header("RangedWeapon Prefabs")]
     [SerializeField] private Projectile projectilePrefab;
     public Projectile Projectile { get => projectilePrefab; private set => projectilePrefab = value; }
 
-    [Header("RangedWeapon Settings")]
-    [SerializeField] private bool needsAmmo;
-    [SerializeField] private Ammunition ammunition;
+    [Header("RangedWeapon General")]
     [SerializeField] private float attackRange;
-    public bool NeedsAmmo { get => needsAmmo; private set => needsAmmo = value; }
-    public Ammunition Ammunition { get => ammunition; private set => ammunition = value; }
     public float AttackRange { get => attackRange; private set => attackRange = value; }
-
-    public override bool CheckAmmo(int required)
-    {
-        if (!NeedsAmmo) return true;
-        if (!Ammunition) return false;
-        int current = Ammunition.Amount.Current;
-        return current >= required;
-    }
 
     public override void Attack(Character actor)
     {
@@ -42,10 +30,10 @@ public class RangedWeapon : Weapon
         Projectile proj = projectilePrefab;
         int pellets = 1;
 
-        if (NeedsAmmo)
+        if (NeedsAmmo())
         {
-            if (Ammunition.Projectile) proj = Ammunition.Projectile;
-            pellets = Ammunition.PelletAmount;
+            if (CurrentAmmunition.Projectile) proj = CurrentAmmunition.Projectile;
+            pellets = CurrentAmmunition.PelletAmount;
         }
 
         List<Vector3> pelletDirectionList = new List<Vector3>();
@@ -67,7 +55,7 @@ public class RangedWeapon : Weapon
         }
 
         //play SFX of shot fired
-        Ammunition?.Amount.Subtract(costPerShot);
+        CurrentAmmunition?.Amount.Subtract(costPerShot);
     }
 
     //public Projectile Shoot(Character user, Vector3 direction)
@@ -76,12 +64,4 @@ public class RangedWeapon : Weapon
     //    result.transform.forward = direction;
     //    return result;
     //}
-
-    public bool Reload()
-    {
-        //TODO: proper reloading
-        Ammunition?.Amount.MakeFull();
-        Debug.Log("Reloaded");
-        return true;
-    }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "JASS/Effect/DamageEffect")]
 public class DamageEffect : Effect
 {
     [Header("Settings")]

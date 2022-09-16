@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "JASS/Effect/ProjectileEffect")]
 public class ProjectileEffect : Effect
 {
     [Header("Settings")]

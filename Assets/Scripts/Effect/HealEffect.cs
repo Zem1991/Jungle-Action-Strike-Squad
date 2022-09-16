@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "JASS/Effect/HealEffect")]
 public class HealEffect : Effect
 {
     [Header("Settings")]
