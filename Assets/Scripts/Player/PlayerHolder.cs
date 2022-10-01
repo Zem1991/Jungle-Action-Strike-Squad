@@ -9,14 +9,21 @@ public class PlayerHolder : MonoBehaviour
 
     private void Start()
     {
-        List<Character> characterList = GetComponentsInChildren<Character>().ToList();
+        Player player = null;
+        //Color color = Color.white;
+
         if (playerType == PlayerType.LOCAL)
         {
-            FindObjectOfType<LocalPlayer>().AddCharacters(characterList);
+            player = FindObjectOfType<LocalPlayer>();
+            //color = Color.blue;
         }
         else if (playerType == PlayerType.ENEMY)
         {
-            FindObjectOfType<EnemyPlayer>().AddCharacters(characterList);
+            player = FindObjectOfType<EnemyPlayer>();
+            //color = Color.red;
         }
+
+        List<Character> characterList = GetComponentsInChildren<Character>().ToList();
+        player.AddCharacters(characterList);
     }
 }

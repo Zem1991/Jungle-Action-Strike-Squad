@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Item : MonoBehaviour
+public abstract partial class Item : ScriptableObject
 {
     [Header("Command")]
     [SerializeField] private Command command1;

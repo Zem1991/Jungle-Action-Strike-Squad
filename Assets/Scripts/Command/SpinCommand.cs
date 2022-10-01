@@ -14,7 +14,7 @@ public class SpinCommand : Command
         base.StartExecution(actor, slot, path, onStart, onFinish);
     }
 
-    protected override void UpdateExecution()
+    public override void UpdateExecution()
     {
         Transform actorTransform = Actor.transform;
         float deltaTime = Time.deltaTime;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract partial class Command : MonoBehaviour
+public partial class Command : MonoBehaviour
 {
     [Header("Setup: Parameters")]
     [SerializeField] private Character actor;

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23e1b8b079962c4388257d7369699e2, type: 3}
+  m_Name: Ammo .44 Magnum AP
+  m_EditorClassIdentifier: 
+  command1: {fileID: 0}
+  command2: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 3c90009b47f86e94abebc424faaa8f72, type: 3}
+  itemName: Ammo .44 Magnum AP
+  amountCurrent: 1
+  amountMaximum: 1
+  isThrowable: 1
+  type: 4
+  amount:
+    current: 40
+    maximum: 40
+  projectile: {fileID: 1347542734657851480, guid: fe953c3b9b73c8e46b6ba11a016bbff1, type: 3}
+  pelletAmount: 1
+  pelletSpread: 0

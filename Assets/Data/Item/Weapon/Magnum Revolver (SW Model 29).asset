@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e46aa927ced9c14886099b226c14934, type: 3}
+  m_Name: Magnum Revolver (SW Model 29)
+  m_EditorClassIdentifier: 
+  command1: {fileID: 11400000, guid: f2ca2d93a138c194a82d5310986f0178, type: 2}
+  command2: {fileID: 11400000, guid: 9f3f87884eba0264188d92bf1762a243, type: 2}
+  itemSprite: {fileID: 21300000, guid: b92fd2ce26bf59840bce0ce34ca95e7a, type: 3}
+  itemName: Magnum Revolver (SW Model 29)
+  amountCurrent: 1
+  amountMaximum: 1
+  isThrowable: 1
+  range: 20
+  speed: 0.5
+  accuracy: 1
+  damageMin: 10
+  damageMax: 15
+  isSidearm: 1
+  attackDuration: 0
+  ammunitionType: 4
+  magazineSize: 6
+  currentAmmunition: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  attackRange: 0

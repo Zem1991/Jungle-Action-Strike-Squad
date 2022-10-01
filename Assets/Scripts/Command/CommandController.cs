@@ -36,9 +36,9 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
 
     public string ReadForUI()
     {
-        if (TargetingMode()) return $"Select target for {Button.Name}";
-        if (ConfirmationMode()) return $"Confirm command {Current.Name}: {Actor} => {Slot}";
-        if (ContextMode()) return $"Quick command {Current.Name}: {Actor} => {Slot}";
+        if (TargetingMode()) return $"Select target for {Button.Data.Name}";
+        if (ConfirmationMode()) return $"Confirm command {Current.Data.Name}: {Actor} => {Slot}";
+        if (ContextMode()) return $"Quick command {Current.Data.Name}: {Actor} => {Slot}";
         return "???";
     }
 

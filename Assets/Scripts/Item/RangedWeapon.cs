@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "JASS/Item/RangedWeapon")]
 public partial class RangedWeapon : Weapon
 {
     [Header("RangedWeapon Prefabs")]

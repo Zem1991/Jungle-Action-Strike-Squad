@@ -17,6 +17,7 @@ public class ActionController : AbstractSingleton<ActionController>, IReadableFo
             Runtime += Time.deltaTime;
             float lerpRatio = Mathf.Clamp01(Runtime);
             CameraPosition(lerpRatio);
+            Current.UpdateExecution();
         }
     }
 
@@ -44,7 +45,7 @@ public class ActionController : AbstractSingleton<ActionController>, IReadableFo
     {
         CameraPosition();
         Character actor = Current.Actor;
-        Destroy(Current.gameObject);
+        //Destroy(Current.gameObject);
         Current = null;
         Runtime = -1F;
         actor.SetAction(null);

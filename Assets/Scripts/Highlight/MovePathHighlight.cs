@@ -17,7 +17,7 @@ public class MovePathHighlight : Highlight
 
         CommandController commandController = CommandController.Instance;
         Command command = commandController.Current;
-        if (command && command.NeedsPathHighlight)
+        if (command && command.Data.NeedsPathHighlight)
         {
             positions = PathfindingHelper.GetWorldPositions(commandController.Path);
             lineRenderer.positionCount = positions.Count;

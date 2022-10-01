@@ -27,7 +27,7 @@ public class MoveCommand : Command
         base.StartExecution(actor, slot, path, onStart, onFinish);
     }
 
-    protected override void UpdateExecution()
+    public override void UpdateExecution()
     {
         //LevelGrid levelGrid = LevelController.Instance.LevelGrid;
         Transform actorTransform = Actor.transform;

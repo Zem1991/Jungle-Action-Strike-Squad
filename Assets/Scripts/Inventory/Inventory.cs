@@ -22,7 +22,7 @@ public partial class Inventory : MonoBehaviour
             if (!added)
             {
                 Debug.LogWarning($"Some character had too many items during its Awake call. {item.ItemName} got destroyed.");
-                Destroy(item.gameObject);
+                Destroy(item);
             }
         }
     }
@@ -38,14 +38,14 @@ public partial class Inventory : MonoBehaviour
         else if (EquipHead(tempSlot, true)) result = true;
         else if (ToBackpackFree(tempSlot)) result = true;
         else if (EquipPrimaryItem(tempSlot, true)) result = true;
-        if (result) item.transform.parent = transform;
+        //if (result) item.transform.parent = transform;
         return result;
     }
 
     public bool Remove(InventorySlot slot, out Item item)
     {
         bool removed = slot.Remove(out item);
-        if (removed) item.transform.parent = null;
+        //if (removed) item.transform.parent = null;
         return removed;
     }
 }

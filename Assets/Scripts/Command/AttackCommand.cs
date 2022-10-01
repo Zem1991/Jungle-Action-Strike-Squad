@@ -20,8 +20,8 @@ public class AttackCommand : Command
         Weapon weapon = actor.GetMainWeapon();
         if (!weapon) return false;
 
-        bool ammoOK = weapon.CheckAmmo(AmmoCost);
-        bool actionOK = actor.ActionPoints.Current >= ActionCostPercent;
+        bool ammoOK = weapon.CheckAmmo(Data.AmmoCost);
+        bool actionOK = actor.ActionPoints.Current >= Data.ActionCostPercent;
         return ammoOK && actionOK;
     }
 
@@ -34,7 +34,7 @@ public class AttackCommand : Command
         remaining = attacks;
     }
 
-    protected override void UpdateExecution()
+    public override void UpdateExecution()
     {
         Transform actorTransform = Actor.transform;
         if (actorTransform.forward != facingDir)

@@ -14,7 +14,7 @@ public partial class Projectile : MonoBehaviour
         Character character = colliderHit.GetComponent<Character>();
         if (character)
         {
-            damage.Apply(user, weapon, transform.position, character);
+            Damage.Apply(User, Weapon, transform.position, character);
         }
         Destroy();
     }

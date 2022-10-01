@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "JASS/Item/UsableItem")]
 public class UsableItem : Item
 {
     //[Header("Usable Item")]

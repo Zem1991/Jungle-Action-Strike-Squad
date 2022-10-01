@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "JASS/Effect/DamageEffect")]
 public class DamageEffect : Effect
 {
-    [Header("Settings")]
+    [Header("DamageEffect")]
     [SerializeField] private DiceRoll damage;
     public DiceRoll Damage { get => damage; private set => damage = value; }
 

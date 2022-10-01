@@ -22,7 +22,7 @@ public class CommandSpriteUI : MonoBehaviour
         {
             spriteBack.enabled = true;
             spriteFront.enabled = true;
-            spriteFront.sprite = command.Sprite;
+            spriteFront.sprite = command.Data.Sprite;
         }
         else
         {

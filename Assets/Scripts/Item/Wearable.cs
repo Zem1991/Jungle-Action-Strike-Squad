@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "JASS/Item/Wearable")]
 public class Wearable : Item
 {
     [Header("Wearable")]

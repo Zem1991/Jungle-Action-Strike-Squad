@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//[CreateAssetMenu(menuName = "JASS/Item/Weapon")]
 public abstract partial class Weapon : Item
 {
     [Header("Weapon")]
