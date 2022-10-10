@@ -21,16 +21,16 @@ public partial class Character : MonoBehaviour
     //    return new CommandWheel(Commands, commandContext);
     //}
 
-    public Command GetHotkeyCommand(CommandHotkey hotkey, bool modeToggle)
+    public CommandData GetHotkeyCommand(CommandHotkey hotkey, bool modeToggle)
     {
         return Commands.GetHotkeyCommand(hotkey, modeToggle);
     }
 
-    public Command GetAttackCommand()
+    public CommandData GetAttackCommand()
     {
         //TODO: this but properly
         Weapon weapon = GetMainWeapon();
-        Command result = weapon?.Command1;
+        CommandData result = weapon?.ItemData.Command1;
         //TODO: default back to melee
         //if (!result) result = CommandController.Instance.MeleeAttack;
         return result;

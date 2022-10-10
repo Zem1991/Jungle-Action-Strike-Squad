@@ -7,7 +7,7 @@ public static class CombatRules
     public const float SHOT_SPREAD_ARC = 45F;
     public const float BALLISTIC_RANGE = 150F;
 
-    public static Vector3 AttackDirection(Character actor, AttackCommand attackCommand, Vector3 startPos, Vector3 targetPos)
+    public static Vector3 AttackDirection(Character actor, AttackCommandData attackCommand, Vector3 startPos, Vector3 targetPos)
     {
         float degrees = actor.GetShotSpreadArc(attackCommand) / 2F;
         float angle = Random.Range(-degrees, degrees);

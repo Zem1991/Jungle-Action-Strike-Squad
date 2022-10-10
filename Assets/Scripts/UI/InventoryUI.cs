@@ -37,8 +37,7 @@ public partial class InventoryUI : UIPanel
     public void Swap(InventorySlotUI from, InventorySlotUI to)
     {
         Character character = InventoryController.Instance.Current;
-        bool equipped = character.Inventory.Equip(from.Slot, to.Slot);
-        if (!equipped) character.Inventory.Pack(from.Slot, to.Slot);
+        character.Inventory.Swap(from.Slot, to.Slot);
         Refresh();
     }
 }

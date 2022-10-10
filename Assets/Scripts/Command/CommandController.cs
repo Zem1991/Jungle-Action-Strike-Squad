@@ -5,8 +5,8 @@ using UnityEngine;
 public partial class CommandController : AbstractSingleton<CommandController>, IReadableForUI
 {
     [Header("Runtime")]
-    [SerializeField] private Command button;
-    [SerializeField] private Command current;
+    [SerializeField] private CommandData button;
+    [SerializeField] private CommandData current;
     [SerializeField] private Character actor;
     [SerializeField] private LevelTile slot;
     [SerializeField] private List<PathfindingNode> path;
@@ -15,8 +15,8 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
     //[SerializeField] private Item item;
     //[SerializeField] private GameObject item;
     //[SerializeField] private Character target;
-    public Command Button { get => button; private set => button = value; }
-    public Command Current { get => current; private set => current = value; }
+    public CommandData Button { get => button; private set => button = value; }
+    public CommandData Current { get => current; private set => current = value; }
     public Character Actor { get => actor; private set => actor = value; }
     public LevelTile Slot { get => slot; private set => slot = value; }
     public List<PathfindingNode> Path { get => path; private set => path = value; }
@@ -36,13 +36,13 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
 
     public string ReadForUI()
     {
-        if (TargetingMode()) return $"Select target for {Button.Data.Name}";
-        if (ConfirmationMode()) return $"Confirm command {Current.Data.Name}: {Actor} => {Slot}";
-        if (ContextMode()) return $"Quick command {Current.Data.Name}: {Actor} => {Slot}";
+        if (TargetingMode()) return $"Select target for {Button.Name}";
+        if (ConfirmationMode()) return $"Confirm command {Current.Name}: {Actor} => {Slot}";
+        if (ContextMode()) return $"Quick command {Current.Name}: {Actor} => {Slot}";
         return "???";
     }
 
-    public Command GetCommand()
+    public CommandData GetCommand()
     {
         if (TargetingMode()) return Button;
         if (ConfirmationMode()) return Current;
@@ -81,14 +81,14 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
         LevelTile slot = CursorController.Instance.LevelTile;
         if (!slot) return;
 
-        Command command = CommandHelper.FromContext(actor, slot, out List<PathfindingNode> path);
+        CommandData command = CommandDataHandler.Instance.FromContext(actor, slot, out List<PathfindingNode> path);
         //TODO: make a separate function to get if it's reachable and the resulting path.
         //With this I won't need to override 'command' like this.
         if (Button) command = Button;
         Request(command, actor, slot, path);
     }
 
-    public void DirectRequest(Command command)
+    public void DirectRequest(CommandData command)
     {
         Character actor = SelectionController.Instance.Get();
         if (!command || !actor) return;
@@ -100,7 +100,7 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
     {
         Character actor = SelectionController.Instance.Get();
         if (!actor) return;
-        Command command = actor.GetHotkeyCommand(hotkey, modeToggle);
+        CommandData command = actor.GetHotkeyCommand(hotkey, modeToggle);
         DirectRequest(command);
     }
 
@@ -110,7 +110,7 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
         Request(Current, Actor, Slot, Path);
     }
 
-    private void Request(Command command, Character actor, LevelTile slot, List<PathfindingNode> path)
+    private void Request(CommandData command, Character actor, LevelTile slot, List<PathfindingNode> path)
     {
         if (!command)
         {
@@ -139,7 +139,7 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
         //Target = null;
     }
 
-    private bool Compare(Command command, Character actor, LevelTile slot, List<PathfindingNode> path)
+    private bool Compare(CommandData command, Character actor, LevelTile slot, List<PathfindingNode> path)
     {
         if (Current != command) return false;
         if (Actor != actor) return false;
@@ -149,7 +149,7 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
         return true;
     }
 
-    private void Write(Command command, Character actor, LevelTile slot, List<PathfindingNode> path)
+    private void Write(CommandData command, Character actor, LevelTile slot, List<PathfindingNode> path)
     {
         Current = command;
         Actor = actor;
@@ -159,7 +159,7 @@ public partial class CommandController : AbstractSingleton<CommandController>, I
 
     private void Execute()
     {
-        if (!Current.CheckActionPoints(Actor))
+        if (!CostHelper.CheckActionPoints(Current, Actor))
         {
             string message = FeedbackMessages.Instance.notEnoughActionPoints;
             FeedbackController.Instance.SetMessage(message);

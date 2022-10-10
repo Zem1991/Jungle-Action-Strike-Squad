@@ -214,7 +214,6 @@ GameObject:
   - component: {fileID: 3322890615052467011}
   - component: {fileID: 4296267751301658820}
   - component: {fileID: 6547603229267256588}
-  - component: {fileID: 7047861208129612590}
   m_Layer: 11
   m_Name: Generic Character
   m_TagString: Untagged
@@ -266,8 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   action: {fileID: 0}
   actionPoints:
-    current: 60
-    maximum: 60
+    current: 0
+    maximum: 0
   commands:
     move: {fileID: 0}
     sneak: {fileID: 0}
@@ -281,17 +280,30 @@ MonoBehaviour:
     sidearmAttack: {fileID: 0}
     sidearmReload: {fileID: 0}
     sidearmThrow: {fileID: 0}
+  characterData: {fileID: 0}
   healthPoints:
-    current: 40
-    maximum: 40
-  characterSprite: {fileID: 7229491771544383576, guid: 78605e8726bd42d459831b4e1559b76a, type: 3}
-  characterName: Unnamed
+    current: 0
+    maximum: 0
   inventory: {fileID: 0}
-  movementSpeed: 5
   owner: {fileID: 0}
   levelGridSlot: {fileID: 0}
-  rotationSpeed: 10
-  skillSet: {fileID: 0}
+  skillSet:
+    rangedCombat:
+      current: 0
+    bruteForce:
+      current: 0
+    explosives:
+      current: 0
+    survival:
+      current: 0
+    paramedicine:
+      current: 0
+    mechanics:
+      current: 0
+    computers:
+      current: 0
+    leadership:
+      current: 0
 --- !u!114 &6547603229267256588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,14 +316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bdcb0286b890449a3b49d163bbc209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backpack1:
-    current: {fileID: 0}
-  backpack2:
-    current: {fileID: 0}
-  backpack3:
-    current: {fileID: 0}
-  backpack4:
-    current: {fileID: 0}
   primaryItem:
     current: {fileID: 0}
   sidearm:
@@ -320,36 +324,14 @@ MonoBehaviour:
     current: {fileID: 0}
   torso:
     current: {fileID: 0}
---- !u!114 &7047861208129612590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5389459766139811456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f43e15382b6b64da098e59dc0fedf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatSkill:
-    current: 50
-    maximum: 100
-  survivalSkill:
-    current: 50
-    maximum: 100
-  explosivesSkill:
-    current: 50
-    maximum: 100
-  medicalSkill:
-    current: 50
-    maximum: 100
-  toolsAndTrapsSkill:
-    current: 50
-    maximum: 100
-  leadershipSkill:
-    current: 50
-    maximum: 100
+  backpack1:
+    current: {fileID: 0}
+  backpack2:
+    current: {fileID: 0}
+  backpack3:
+    current: {fileID: 0}
+  backpack4:
+    current: {fileID: 0}
 --- !u!1 &9219803498855145952
 GameObject:
   m_ObjectHideFlags: 0

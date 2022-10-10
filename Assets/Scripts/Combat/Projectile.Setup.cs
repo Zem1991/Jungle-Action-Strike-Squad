@@ -6,10 +6,10 @@ using UnityEngine;
 public partial class Projectile : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private DamageEffect damage;
+    [SerializeField] private DamageEffectData damage;
     //Explosion
     //Trajectory
-    public DamageEffect Damage { get => damage; private set => damage = value; }
+    public DamageEffectData Damage { get => damage; private set => damage = value; }
     //Explosion
     //Trajectory
 

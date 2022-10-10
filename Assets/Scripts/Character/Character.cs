@@ -5,14 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(Inventory))]
 public partial class Character : MonoBehaviour
 {
-    //[Header("Character")]
-    //[SerializeField] private Weapon weapon;
-    //public Weapon Weapon { get => weapon; private set => weapon = value; }
+    [Header("Character Data")]
+    [SerializeField] private CharacterData characterData;
+    public CharacterData CharacterData { get => characterData; private set => characterData = value; }
 
     private void Awake()
     {
+        HealthPoints = new Resource(characterData.HealthPointsStart);
+        ActionPoints = new Resource(characterData.ActionPointsStart);
+        SkillSet = new SkillSet(characterData);
+        //Inventory = new Inventory(characterData);
         Inventory = GetComponent<Inventory>();
-        SkillSet = GetComponent<SkillSet>();
     }
 
     private void Start()
@@ -21,19 +24,12 @@ public partial class Character : MonoBehaviour
         RefreshGridPosition();
     }
 
-    //private void Update()
-    //{
-    //    UpdateCommand();
-    //    UpdateNavigation();
-    //}
+    public Vector3 GetPosition() => transform.position;
+    public Vector3 GetDirection() => transform.forward;
 
-    public Vector3 GetPosition()
-    {
-        return transform.position;
-    }
+    public void RotateTo(Vector3 position) => RotationHelper.RotateTo(this, position);
+    public void RotateAt(Vector3 direction) => RotationHelper.RotateAt(this, direction);
 
-    public Vector3 GetDirection()
-    {
-        return transform.forward;
-    }
+    public void MoveTo(Vector3 position) => MovementHelper.MoveTo(this, position);
+    public void MoveAt(Vector3 direction) => MovementHelper.MoveAt(this, direction);
 }

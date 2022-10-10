@@ -6,36 +6,36 @@ using UnityEngine;
 public class CommandGrabber
 {
     [Header("Movement")]
-    [SerializeField] private Command move;
-    [SerializeField] private Command sneak;
-    public Command Move { get => move; private set => move = value; }
-    public Command Sneak { get => sneak; private set => sneak = value; }
+    [SerializeField] private CommandData move;
+    [SerializeField] private CommandData sneak;
+    public CommandData Move { get => move; private set => move = value; }
+    public CommandData Sneak { get => sneak; private set => sneak = value; }
 
     [Header("Melee")]
-    [SerializeField] private Command unarmedAttack;
-    [SerializeField] private Command takedown;
-    public Command UnarmedAttack { get => unarmedAttack; private set => unarmedAttack = value; }
-    public Command Takedown { get => takedown; private set => takedown = value; }
+    [SerializeField] private CommandData unarmedAttack;
+    [SerializeField] private CommandData takedown;
+    public CommandData UnarmedAttack { get => unarmedAttack; private set => unarmedAttack = value; }
+    public CommandData Takedown { get => takedown; private set => takedown = value; }
 
     [Header("Primary Item")]
-    [SerializeField] private Command primaryItem1;
-    [SerializeField] private Command primaryItem2;
-    [SerializeField] private Command primaryReload;
-    [SerializeField] private Command primaryThrow;
-    [SerializeField] private Command overwatch;
-    public Command PrimaryItem1 { get => primaryItem1; private set => primaryItem1 = value; }
-    public Command PrimaryItem2 { get => primaryItem2; private set => primaryItem2 = value; }
-    public Command PrimaryReload { get => primaryReload; private set => primaryReload = value; }
-    public Command PrimaryThrow { get => primaryThrow; private set => primaryThrow = value; }
-    public Command Overwatch { get => overwatch; private set => overwatch = value; }
+    [SerializeField] private CommandData primaryItem1;
+    [SerializeField] private CommandData primaryItem2;
+    [SerializeField] private CommandData primaryReload;
+    [SerializeField] private CommandData primaryThrow;
+    [SerializeField] private CommandData overwatch;
+    public CommandData PrimaryItem1 { get => primaryItem1; private set => primaryItem1 = value; }
+    public CommandData PrimaryItem2 { get => primaryItem2; private set => primaryItem2 = value; }
+    public CommandData PrimaryReload { get => primaryReload; private set => primaryReload = value; }
+    public CommandData PrimaryThrow { get => primaryThrow; private set => primaryThrow = value; }
+    public CommandData Overwatch { get => overwatch; private set => overwatch = value; }
 
     [Header("Sidearm")]
-    [SerializeField] private Command sidearmAttack;
-    [SerializeField] private Command sidearmReload;
-    [SerializeField] private Command sidearmThrow;
-    public Command SidearmAttack { get => sidearmAttack; private set => sidearmAttack = value; }
-    public Command SidearmReload { get => sidearmReload; private set => sidearmReload = value; }
-    public Command SidearmThrow { get => sidearmThrow; private set => sidearmThrow = value; }
+    [SerializeField] private CommandData sidearmAttack;
+    [SerializeField] private CommandData sidearmReload;
+    [SerializeField] private CommandData sidearmThrow;
+    public CommandData SidearmAttack { get => sidearmAttack; private set => sidearmAttack = value; }
+    public CommandData SidearmReload { get => sidearmReload; private set => sidearmReload = value; }
+    public CommandData SidearmThrow { get => sidearmThrow; private set => sidearmThrow = value; }
 
     public CommandGrabber(Character actor)
     {
@@ -49,14 +49,14 @@ public class CommandGrabber
     
     private void GenerateMovement()
     {
-        CommandPrefabs prefabs = CommandPrefabs.Instance;
+        CommandDataHandler prefabs = CommandDataHandler.Instance;
         Move = prefabs.Move;
         Sneak = prefabs.Sneak;
     }
 
     private void GenerateMelee()
     {
-        CommandPrefabs prefabs = CommandPrefabs.Instance;
+        CommandDataHandler prefabs = CommandDataHandler.Instance;
         UnarmedAttack = prefabs.UnarmedAttack;
         Takedown = prefabs.Takedown;
     }
@@ -64,12 +64,12 @@ public class CommandGrabber
     private void GeneratePrimaryItem(Item primaryItem)
     {
         if (!primaryItem) return;
-        CommandPrefabs prefabs = CommandPrefabs.Instance;
+        CommandDataHandler prefabs = CommandDataHandler.Instance;
         bool isWeapon = primaryItem as Weapon;
-        bool isThrowable = primaryItem.IsThrowable;
+        bool isThrowable = true;//primaryItem.IsThrowable;
         bool canOverwatch = isWeapon;
-        PrimaryItem1 = primaryItem.Command1;
-        PrimaryItem2 = primaryItem.Command2;
+        PrimaryItem1 = primaryItem.ItemData.Command1;
+        PrimaryItem2 = primaryItem.ItemData.Command2;
         PrimaryReload = isWeapon ? prefabs.PrimaryReload : null;
         PrimaryThrow = isThrowable ? prefabs.PrimaryThrow : null;
         Overwatch = canOverwatch ? prefabs.Overwatch : null;
@@ -77,17 +77,17 @@ public class CommandGrabber
 
     private void GenerateSidearm(Weapon sidearm)
     {
-        if (!sidearm || !sidearm.IsSidearm) return;
-        CommandPrefabs prefabs = CommandPrefabs.Instance;
-        bool isThrowable = sidearm.IsThrowable;
-        SidearmAttack = sidearm.Command1;
+        if (!sidearm || !sidearm.ItemData.IsSidearm) return;
+        CommandDataHandler prefabs = CommandDataHandler.Instance;
+        bool isThrowable = true;//sidearm.IsThrowable;
+        SidearmAttack = sidearm.ItemData.Command1;
         SidearmReload = prefabs.SidearmReload;
         SidearmThrow = isThrowable ? prefabs.SidearmThrow : null;
     }
     
-    public Command GetHotkeyCommand(CommandHotkey hotkey, bool modeToggle)
+    public CommandData GetHotkeyCommand(CommandHotkey hotkey, bool modeToggle)
     {
-        Command result = null;
+        CommandData result = null;
         switch (hotkey)
         {
             case CommandHotkey.MOVE:

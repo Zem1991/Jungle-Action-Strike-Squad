@@ -2,16 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "JASS/Item/RangedWeapon")]
-public partial class RangedWeapon : Weapon
+public class RangedWeapon : Weapon
 {
-    [Header("RangedWeapon Prefabs")]
-    [SerializeField] private Projectile projectilePrefab;
-    public Projectile Projectile { get => projectilePrefab; private set => projectilePrefab = value; }
+    public new RangedWeaponData ItemData { get => itemData as RangedWeaponData; }
 
-    [Header("RangedWeapon General")]
-    [SerializeField] private float attackRange;
-    public float AttackRange { get => attackRange; private set => attackRange = value; }
+    public void Initialize(RangedWeaponData itemData)
+    {
+        base.Initialize(itemData);
+    }
+
+    [Header("RangedWeapon Ammunition")]
+    [SerializeField] private Ammunition currentAmmunition;
+    public Ammunition CurrentAmmunition { get => currentAmmunition; private set => currentAmmunition = value; }
+
+    public override bool CheckAmmo(int required)
+    {
+        if (!NeedsAmmo()) return true;
+        if (!CurrentAmmunition) return false;
+        int current = CurrentAmmunition.Stack.Current;
+        return current >= required;
+    }
+
+    public bool NeedsAmmo()
+    {
+        return ItemData.DefaultAmmo.Type != AmmunitionType.NONE;
+    }
+
+    public bool Reload()
+    {
+        //TODO: proper reloading
+        CurrentAmmunition?.Stack.MakeFull();
+        Debug.Log("Reloaded");
+        return true;
+    }
 
     public override void Attack(Character actor)
     {
@@ -28,13 +51,13 @@ public partial class RangedWeapon : Weapon
             return;
         }
 
-        Projectile proj = projectilePrefab;
+        Projectile proj = ItemData.DefaultAmmo.Projectile;
         int pellets = 1;
 
         if (NeedsAmmo())
         {
-            if (CurrentAmmunition.Projectile) proj = CurrentAmmunition.Projectile;
-            pellets = CurrentAmmunition.PelletAmount;
+            if (CurrentAmmunition.ItemData.Projectile) proj = CurrentAmmunition.ItemData.Projectile;
+            pellets = CurrentAmmunition.ItemData.PelletAmount;
         }
 
         List<Vector3> pelletDirectionList = new List<Vector3>();
@@ -56,7 +79,7 @@ public partial class RangedWeapon : Weapon
         }
 
         //play SFX of shot fired
-        CurrentAmmunition?.Amount.Subtract(costPerShot);
+        CurrentAmmunition?.Stack.Subtract(costPerShot);
     }
 
     //public Projectile Shoot(Character user, Vector3 direction)

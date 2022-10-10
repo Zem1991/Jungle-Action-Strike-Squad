@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class SpinCommand : Command
 {
+    public new SpinCommandData CommandData { get => commandData as SpinCommandData; }
+
+    public void Initialize(SpinCommandData commandData)
+    {
+        base.Initialize(commandData);
+    }
+
+    [Header("SpinCommand")]
     private float timer = 1F;
     private Quaternion startingRotation;
 

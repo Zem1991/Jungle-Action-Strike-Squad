@@ -17,7 +17,7 @@ public class CommandUI : UIPanel
     public override void Refresh()
     {
         CommandController commandController = CommandController.Instance;
-        Command command = commandController.GetCommand();
+        CommandData command = commandController.GetCommand();
         string commandNameText = commandController.ReadForUI();
         if (!command)
         {

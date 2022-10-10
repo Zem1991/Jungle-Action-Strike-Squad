@@ -14,7 +14,7 @@ public class EffectiveAimHighlight : Highlight
         }
 
         CommandController commandController = CommandController.Instance;
-        AttackCommand attackCommand = commandController.Current as AttackCommand;
+        AttackCommandData attackCommand = commandController.Current as AttackCommandData;
         Character character = commandController.Actor;
         LevelTile targetSlot = commandController.Slot;
         if (attackCommand)

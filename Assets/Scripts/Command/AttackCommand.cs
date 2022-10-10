@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class AttackCommand : Command
 {
-    [Header("AttackCommand Settings")]
-    private int attacks = 1;
+    public new AttackCommandData CommandData { get => commandData as AttackCommandData; }
 
-    [Header("AttackCommand Runtime")]
+    public void Initialize(AttackCommandData commandData)
+    {
+        base.Initialize(commandData);
+    }
+
+    [Header("AttackCommand")]
     private Vector3 startPos;
     private Vector3 targetPos;
     private Vector3 facingDir;
@@ -20,8 +24,8 @@ public class AttackCommand : Command
         Weapon weapon = actor.GetMainWeapon();
         if (!weapon) return false;
 
-        bool ammoOK = weapon.CheckAmmo(Data.AmmoCost);
-        bool actionOK = actor.ActionPoints.Current >= Data.ActionCostPercent;
+        bool ammoOK = true;// weapon.CheckAmmo(Data.AmmoCost);
+        bool actionOK = actor.ActionPoints.Current >= CommandData.ActionCostPercent.Current;
         return ammoOK && actionOK;
     }
 
@@ -31,7 +35,7 @@ public class AttackCommand : Command
         startPos = Actor.GetPosition();
         targetPos = Tile.transform.position;
         facingDir = (targetPos - startPos).normalized;
-        remaining = attacks;
+        remaining = CommandData.Attacks;
     }
 
     public override void UpdateExecution()

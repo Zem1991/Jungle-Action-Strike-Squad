@@ -1,54 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillSet : MonoBehaviour
+[Serializable]
+public class SkillSet
 {
-    [SerializeField] private Resource combatSkill;
-    [SerializeField] private Resource survivalSkill;
-    [SerializeField] private Resource explosivesSkill;
-    [SerializeField] private Resource medicalSkill;
-    [SerializeField] private Resource toolsAndTrapsSkill;
-    [SerializeField] private Resource leadershipSkill;
-    public Resource CombatSkill { get => combatSkill; private set => combatSkill = value; }
-    public Resource SurvivalSkill { get => survivalSkill; private set => survivalSkill = value; }
-    public Resource ExplosivesSkill { get => explosivesSkill; private set => explosivesSkill = value; }
-    public Resource MedicalSkill { get => medicalSkill; private set => medicalSkill = value; }
-    public Resource ToolsAndTrapsSkill { get => toolsAndTrapsSkill; private set => toolsAndTrapsSkill = value; }
-    public Resource LeadershipSkill { get => leadershipSkill; private set => leadershipSkill = value; }
+    [SerializeField] private Percent rangedCombat;
+    [SerializeField] private Percent bruteForce;
+    [SerializeField] private Percent explosives;
+    [SerializeField] private Percent survival;
+    [SerializeField] private Percent paramedicine;
+    [SerializeField] private Percent mechanics;
+    [SerializeField] private Percent computers;
+    [SerializeField] private Percent leadership;
 
-    //TODO: two methods for this - one for name and another for current value
-    public string GetSkillText(SkillType skillType)
+    public Percent RangedCombat { get => rangedCombat; private set => rangedCombat = value; }
+    public Percent BruteForce { get => bruteForce; private set => bruteForce = value; }
+    public Percent Explosives { get => explosives; private set => explosives = value; }
+    public Percent Survival { get => survival; private set => survival = value; }
+    public Percent Paramedicine { get => paramedicine; private set => paramedicine = value; }
+    public Percent Mechanics { get => mechanics; private set => mechanics = value; }
+    public Percent Computers { get => computers; private set => computers = value; }
+    public Percent Leadership { get => leadership; private set => leadership = value; }
+
+    public SkillSet(CharacterData characterData)
     {
-        string name = null;
-        Resource skill = null;
-        switch (skillType)
-        {
-            case SkillType.COMBAT:
-                name = "CBT";
-                skill = CombatSkill;
-                break;
-            case SkillType.SURVIVAL:
-                name = "SUR";
-                skill = SurvivalSkill;
-                break;
-            case SkillType.EXPLOSIVES:
-                name = "EXS";
-                skill = ExplosivesSkill;
-                break;
-            case SkillType.MEDICAL:
-                name = "MED";
-                skill = MedicalSkill;
-                break;
-            case SkillType.TOOLS_TRAPS:
-                name = "T&T";
-                skill = ToolsAndTrapsSkill;
-                break;
-            case SkillType.LEADERSHIP:
-                name = "LDR";
-                skill = LeadershipSkill;
-                break;
-        }
-        return $"{name} {skill.Current}";
+        RangedCombat = new Percent(characterData.RangedCombat);
+        BruteForce = new Percent(characterData.BruteForce);
+        Explosives = new Percent(characterData.Explosives);
+        Survival = new Percent(characterData.Survival);
+        Paramedicine = new Percent(characterData.Paramedicine);
+        Mechanics = new Percent(characterData.Mechanics);
+        Computers = new Percent(characterData.Computers);
+        Leadership = new Percent(characterData.Leadership);
     }
 }

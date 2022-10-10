@@ -28,7 +28,7 @@ public class CharacterHighlight : Highlight
         Color color = PlayerColors.GetPanelBackground(playerType);
         background.color = color;
 
-        charName.text = Character.CharacterName;
+        charName.text = Character.CharacterData.Name;
         charHealth.text = $"HP {Character.HealthPoints}";
         charAction.text = $"AP {Character.ActionPoints}";
 

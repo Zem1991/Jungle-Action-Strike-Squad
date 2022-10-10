@@ -19,16 +19,16 @@ public partial class InventoryUI : UIPanel
 
     private void RefreshData(Character character)
     {
-        charSprite.sprite = character.CharacterSprite;
-        charName.text = character.CharacterName;
+        charSprite.sprite = character.CharacterData.Sprite;
+        charName.text = character.CharacterData.Name;
         charHealth.text = $"HP {character.HealthPoints}";
         charAction.text = $"AP {character.ActionPoints}";
 
-        skillCombat.text = character.GetSkillText(SkillType.COMBAT);
-        skillSurvival.text = character.GetSkillText(SkillType.SURVIVAL);
-        skillExplosives.text = character.GetSkillText(SkillType.EXPLOSIVES);
-        skillMedical.text = character.GetSkillText(SkillType.MEDICAL);
-        skillToolsAndTraps.text = character.GetSkillText(SkillType.TOOLS_TRAPS);
-        skillLeadership.text = character.GetSkillText(SkillType.LEADERSHIP);
+        skillCombat.text = SkillType.RangedCombat.Name();
+        skillSurvival.text = SkillType.BruteForce.Name();
+        skillExplosives.text = SkillType.Explosives.Name();
+        skillMedical.text = SkillType.Survival.Name();
+        skillToolsAndTraps.text = SkillType.Paramedicine.Name();
+        skillLeadership.text = SkillType.Mechanics.Name();
     }
 }

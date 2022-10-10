@@ -30,8 +30,8 @@ public class CharacterButtonUI : UIPanel//, IPointerClickHandler
             stuffHolder.transform.localPosition = position;
         }
 
-        charSprite.sprite = character.CharacterSprite;
-        charName.text = character.CharacterName;
+        charSprite.sprite = character.CharacterData.Sprite;
+        charName.text = character.CharacterData.Name;
         charHealth.text = $"HP {character.HealthPoints}";
         charAction.text = $"AP {character.ActionPoints}";
     }

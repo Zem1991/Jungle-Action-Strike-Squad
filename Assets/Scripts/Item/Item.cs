@@ -2,8 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(menuName = "JASS/Item/")]
-public abstract partial class Item : ScriptableObject
+public abstract class Item : MonoBehaviour
 {
-    
+    [Header("Item Initialization")]
+    [SerializeField] protected ItemData itemData;
+    [SerializeField] protected Resource stack;
+    public ItemData ItemData { get => itemData; private set => itemData = value; }
+    public Resource Stack { get => stack; private set => stack = value; }
+
+    public void Initialize(ItemData itemData)
+    {
+        ItemData = itemData;
+        Stack = new(itemData.StackStart, itemData.StackLimit);
+    }
 }

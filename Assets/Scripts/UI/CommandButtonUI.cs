@@ -10,7 +10,7 @@ public class CommandButtonUI : UIPanel, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private CommandSpriteUI spriteUI;
 
     [Header("CommandButtonUI Runtime")]
-    [SerializeField] private Command command;
+    [SerializeField] private CommandData command;
 
     protected override void Awake()
     {
@@ -39,7 +39,7 @@ public class CommandButtonUI : UIPanel, IPointerEnterHandler, IPointerExitHandle
         CommandController.Instance.DirectRequest(command);
     }
 
-    public void Refresh(Command command)
+    public void Refresh(CommandData command)
     {
         this.command = command;
         spriteUI.Refresh(command);

@@ -15,7 +15,7 @@ public partial class InventoryItemUI : UIPanel
         SlotUI = slotUI;
         if (item)
         {
-            itemSprite.sprite = item.ItemSprite;
+            itemSprite.sprite = item.ItemData.Sprite;
             itemSprite.enabled = true;
         }
         else

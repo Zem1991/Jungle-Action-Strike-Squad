@@ -16,13 +16,13 @@ public class CommandSpriteUI : MonoBehaviour
         spriteFront = sprites[1];
     }
 
-    public void Refresh(Command command)
+    public void Refresh(CommandData command)
     {
         if (command)
         {
             spriteBack.enabled = true;
             spriteFront.enabled = true;
-            spriteFront.sprite = command.Data.Sprite;
+            spriteFront.sprite = command.Sprite;
         }
         else
         {

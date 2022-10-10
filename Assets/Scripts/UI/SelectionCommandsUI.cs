@@ -21,7 +21,7 @@ public class SelectionCommandsUI : UIPanel
     public void Refresh(Character character)
     {
         CommandController commandController = CommandController.Instance;
-        Command ccCommand = commandController.GetCommand();
+        CommandData ccCommand = commandController.GetCommand();
         if (ccCommand)
         {
             Hide();
@@ -38,7 +38,7 @@ public class SelectionCommandsUI : UIPanel
                 //Command command = CommandHelper.FromGrabber(character, index);
                 CommandHotkey hotkey = (CommandHotkey)index;
                 bool modeToggle = false;
-                Command command = character.GetHotkeyCommand(hotkey, modeToggle);
+                CommandData command = character.GetHotkeyCommand(hotkey, modeToggle);
                 commandButtons[index].Refresh(command);
             }
             Show();
