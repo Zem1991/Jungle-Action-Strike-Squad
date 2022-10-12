@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
-public partial class Character : MonoBehaviour
+public abstract partial class Character : MonoBehaviour
 {
     [Header("Character Data")]
     [SerializeField] private CharacterData characterData;

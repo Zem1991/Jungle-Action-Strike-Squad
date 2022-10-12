@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce95f54d9ff10247bf4d44d310a85ab, type: 3}
+  m_Name: Defender Pistol
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: b20b97a5ab4300b4785c14a0ef62e0b4, type: 3}
+  name: Defender Pistol
+  stackStart: 1
+  stackLimit: 1
+  command1: {fileID: 11400000, guid: b756b0992f9c6914283766e42eea2502, type: 2}
+  command2: {fileID: 11400000, guid: 5cea5b6cad552e04db74426a00c4a568, type: 2}
+  isSidearm: 1
+  range: 20
+  speed: 0.5
+  accuracyModifier: 1
+  defaultAmmo: {fileID: 11400000, guid: 4cbf201bd0e806b43beceee67a2e405b, type: 2}

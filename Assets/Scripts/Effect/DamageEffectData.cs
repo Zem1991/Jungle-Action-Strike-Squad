@@ -11,8 +11,7 @@ public class DamageEffectData : EffectData
 
     public override bool Apply(Character actor, Item item, Vector3 position, Character target)
     {
-        //int amount = Damage.Roll();
-        //return target.TakeDamage(amount);
-        return true;
+        int amount = Damage.Roll();
+        return target.TakeDamage(amount);
     }
 }

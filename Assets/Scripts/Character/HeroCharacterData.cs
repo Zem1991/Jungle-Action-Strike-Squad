@@ -6,5 +6,6 @@ using UnityEngine;
 public class HeroCharacterData : CharacterData
 {
     [Header("HeroCharacterData")]
-    [SerializeField][Min(1)] private int level;
+    [SerializeField][Min(1)] private int levelStart = 1;
+    public int LevelStart { get => levelStart; private set => levelStart = value; }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Character : MonoBehaviour
+public abstract partial class Character : MonoBehaviour
 {
     [Header("Inventory")]
     [SerializeField] private Inventory inventory;

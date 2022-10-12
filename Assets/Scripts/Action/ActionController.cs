@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ActionController : AbstractSingleton<ActionController>, IReadableForUI
 {
+    //TODO: calling this Action is weird because of default C#/Unity stuff
+    //TODO: maybe I should make an Command Executor Prefab and have the CommandController instantiate and use it
+
     [Header("Runtime")]
     [SerializeField] private Command current;
     [SerializeField] private float runtime;
@@ -34,7 +37,7 @@ public class ActionController : AbstractSingleton<ActionController>, IReadableFo
     public bool SetCurrent(CommandData command, Character actor, LevelTile slot, List<PathfindingNode> path)
     {
         if (HasCurrent()) return false;
-        Current = ActionPrefabs.Instance.InstantiateCommand(command);
+        Current = CommandPrefabs.Instance.InstantiateCommand(command);
         Current.TryToExecute(actor, slot, path, null, FinishCurrent);
         Runtime = 0F;
         actor.SetAction(Current);

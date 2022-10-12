@@ -10,4 +10,9 @@ public class Ammunition : Item
     {
         base.Initialize(itemData);
     }
+
+    public override void AfterUse()
+    {
+        throw new System.NotImplementedException();
+    }
 }

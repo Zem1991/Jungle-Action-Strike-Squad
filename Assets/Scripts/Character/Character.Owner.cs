@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public partial class Character : MonoBehaviour
+public abstract partial class Character : MonoBehaviour
 {
     [Header("Owner")]
     [SerializeField] private Player owner;

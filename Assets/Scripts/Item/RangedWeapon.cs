@@ -11,6 +11,11 @@ public class RangedWeapon : Weapon
         base.Initialize(itemData);
     }
 
+    public override void AfterUse()
+    {
+        throw new System.NotImplementedException();
+    }
+
     [Header("RangedWeapon Ammunition")]
     [SerializeField] private Ammunition currentAmmunition;
     public Ammunition CurrentAmmunition { get => currentAmmunition; private set => currentAmmunition = value; }

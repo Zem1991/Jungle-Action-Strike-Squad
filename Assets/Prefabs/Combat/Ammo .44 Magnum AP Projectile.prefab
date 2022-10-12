@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2443839188629978042}
   - component: {fileID: 1347542734657851480}
   m_Layer: 12
-  m_Name: 'Ammo '
+  m_Name: Ammo .44 Magnum AP Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 20
-  damage: {fileID: 11400000, guid: bce6e7902c1018e4984fa1514b512b49, type: 2}
+  damage: {fileID: 11400000, guid: 057b3c5353e586846a3b0c7c178e76ee, type: 2}
   user: {fileID: 0}
   weapon: {fileID: 0}
 --- !u!1 &7661049691653063174

@@ -15,4 +15,6 @@ public abstract class Item : MonoBehaviour
         ItemData = itemData;
         Stack = new(itemData.StackStart, itemData.StackLimit);
     }
+
+    public abstract void AfterUse();
 }
