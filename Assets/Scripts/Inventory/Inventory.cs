@@ -50,7 +50,7 @@ public partial class Inventory : MonoBehaviour
         Item[] items = GetComponentsInChildren<Item>();
         foreach (Item item in items)
         {
-            bool added = InventoryHelper.Add(this, item);
+            bool added = InventoryOperationsHelper.Add(this, item);
             if (!added)
             {
                 Debug.LogWarning($"Some character had too many items during its Initialization. An {item.ItemData.Name} got destroyed.");
@@ -61,16 +61,16 @@ public partial class Inventory : MonoBehaviour
 
     public bool Add(Item item)
     {
-        return InventoryHelper.Add(this, item);
+        return InventoryOperationsHelper.Add(this, item);
     }
 
     public bool Remove(InventorySlot slot, out Item item)
     {
-        return InventoryHelper.Remove(this, slot, out item);
+        return InventoryOperationsHelper.Remove(this, slot, out item);
     }
 
     public bool Swap(InventorySlot fromSlot, InventorySlot toSlot)
     {
-        return InventoryHelper.Swap(this, fromSlot, toSlot);
+        return InventoryOperationsHelper.Swap(this, fromSlot, toSlot);
     }
 }

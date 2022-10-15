@@ -48,6 +48,12 @@ public class Resource
         Subtract(Maximum, false);
     }
 
+    //public bool Set(int amount)
+    //{
+    //    Current = Mathf.Clamp(amount, 0, Maximum);
+    //    return true;
+    //}
+
     public bool Add(int amount)
     {
         if (amount <= 0) return false;

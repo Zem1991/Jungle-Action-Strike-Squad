@@ -6,10 +6,10 @@ using UnityEngine;
 [Serializable]
 public class InventorySlot
 {
-    private Type type;
+    [SerializeField] private Type type;
     [SerializeField] private Item current;
-    public Type Type { get => type; set => type = value; }
-    public Item Current { get => current; set => current = value; }
+    public Type Type { get => type; private set => type = value; }
+    public Item Current { get => current; private set => current = value; }
 
     public InventorySlot(Type slotType, Item current = null)
     {

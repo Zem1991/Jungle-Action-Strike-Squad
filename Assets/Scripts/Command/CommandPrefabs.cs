@@ -7,6 +7,7 @@ public class CommandPrefabs : AbstractSingleton<CommandPrefabs>
     [SerializeField] private SpinCommand spin;
     [SerializeField] private MoveCommand move;
     [SerializeField] private AttackCommand attack;
+    [SerializeField] private ReloadCommand reload;
 
     public Command InstantiateCommand(CommandData commandData)
     {

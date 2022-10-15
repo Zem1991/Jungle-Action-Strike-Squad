@@ -10,7 +10,7 @@ public abstract class Weapon : Item
     {
         base.Initialize(itemData);
     }
-
+    
     public abstract bool CheckAmmo(int required);
     public abstract void Attack(Character actor);
 }

@@ -1,6 +1,6 @@
 public enum AmmunitionType
 {
-    NONE,
+    //NONE,
     _9MM_PARABELLUM,
     _32_ACP,
     _38_SPECIAL,

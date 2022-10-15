@@ -1198,16 +1198,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ae6a28bd0da264f8eb6ec623b6e38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spin: {fileID: 0}
-  attack: {fileID: 0}
-  move: {fileID: 0}
+  spin: {fileID: 11400000, guid: f6ce4098af059bf4c84b7eb56206b0cb, type: 2}
+  attack: {fileID: 11400000, guid: fc5442b000309314fb2599c8a261ac63, type: 2}
+  move: {fileID: 11400000, guid: 10a92162138e1c441acf273c3d76bbd2, type: 2}
   sneak: {fileID: 0}
   unarmedAttack: {fileID: 0}
   takedown: {fileID: 0}
-  primaryReload: {fileID: 0}
+  primaryReload: {fileID: 11400000, guid: 3239718924710c3419808bf81639601e, type: 2}
   primaryThrow: {fileID: 0}
   overwatch: {fileID: 0}
-  sidearmReload: {fileID: 0}
+  sidearmReload: {fileID: 11400000, guid: fb774f29ffc97fc4ba0d37a0904a6ea8, type: 2}
   sidearmThrow: {fileID: 0}
 --- !u!114 &970370943
 MonoBehaviour:
@@ -1224,6 +1224,7 @@ MonoBehaviour:
   spin: {fileID: -7525748701695666805, guid: 2342b1abc6682234b9c9e19a45d7cdb8, type: 3}
   move: {fileID: 2136975183986550273, guid: 6547461b9c1803549ac725cb5cd6f605, type: 3}
   attack: {fileID: 1403492683356394157, guid: 3eeeec604ae92cc4caf5845efa34377a, type: 3}
+  reload: {fileID: 900188867812444726, guid: 9ef5b146ef62bdf46a35b12b5155186c, type: 3}
 --- !u!1001 &981647991
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,17 +23,17 @@ public class CommandDataHandler : AbstractSingleton<CommandDataHandler>
     public CommandData Takedown { get => takedown; private set => takedown = value; }
 
     [Header("Primary Weapon")]
-    [SerializeField] private CommandData primaryReload;
+    [SerializeField] private ReloadCommandData primaryReload;
     [SerializeField] private CommandData primaryThrow;
     [SerializeField] private CommandData overwatch;
-    public CommandData PrimaryReload { get => primaryReload; private set => primaryReload = value; }
+    public ReloadCommandData PrimaryReload { get => primaryReload; private set => primaryReload = value; }
     public CommandData PrimaryThrow { get => primaryThrow; private set => primaryThrow = value; }
     public CommandData Overwatch { get => overwatch; private set => overwatch = value; }
 
     [Header("Sidearm")]
-    [SerializeField] private CommandData sidearmReload;
+    [SerializeField] private ReloadCommandData sidearmReload;
     [SerializeField] private CommandData sidearmThrow;
-    public CommandData SidearmReload { get => sidearmReload; private set => sidearmReload = value; }
+    public ReloadCommandData SidearmReload { get => sidearmReload; private set => sidearmReload = value; }
     public CommandData SidearmThrow { get => sidearmThrow; private set => sidearmThrow = value; }
 
     public CommandData FromContext(Character actor, LevelTile targetSlot, out List<PathfindingNode> path)
