@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class GenericCharacter : Character
 {
+    public new GenericCharacterData CharacterData { get => characterData as GenericCharacterData; }
 
+    public void Initialize(GenericCharacterData characterData)
+    {
+        base.Initialize(characterData);
+    }
 }

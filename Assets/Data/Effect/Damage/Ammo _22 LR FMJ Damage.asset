@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ammo _22 LR FMJ Damage
   m_EditorClassIdentifier: 
   damage:
-    diceAmount: 2
-    diceSides: 6
-    addedValue: 8
+    diceAmount: 3
+    diceSides: 4
+    addedValue: 15

@@ -29,9 +29,9 @@ public abstract partial class Character : MonoBehaviour
         if (LevelGridSlot)
         {
             if (LevelGridSlot == nextSlot) return;
-            LevelGridSlot.RemoveCharacter(this);
+            LevelGridSlot.Remove(this);
         }
         LevelGridSlot = nextSlot;
-        LevelGridSlot.AddCharacter(this);
+        LevelGridSlot.Add(this);
     }
 }

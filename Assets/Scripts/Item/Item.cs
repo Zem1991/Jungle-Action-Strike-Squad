@@ -9,7 +9,7 @@ public abstract class Item : MonoBehaviour
     [SerializeField] protected Resource stack;
     public ItemData ItemData { get => itemData; private set => itemData = value; }
     public Resource Stack { get => stack; private set => stack = value; }
-
+    
     public void Initialize(ItemData itemData)
     {
         ItemData = itemData;

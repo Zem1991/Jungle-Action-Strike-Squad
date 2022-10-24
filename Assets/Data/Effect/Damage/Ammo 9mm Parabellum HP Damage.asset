@@ -15,4 +15,4 @@ MonoBehaviour:
   damage:
     diceAmount: 2
     diceSides: 6
-    addedValue: 8
+    addedValue: 10

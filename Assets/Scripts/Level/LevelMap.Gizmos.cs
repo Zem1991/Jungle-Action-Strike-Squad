@@ -57,5 +57,10 @@ public partial class LevelMap : MonoBehaviour
             Gizmos.color = hasCharacterColor;
             Gizmos.DrawCube(center, size * 0.6F);
         }
+        if (slot?.ItemPickups.Count > 0)
+        {
+            Gizmos.color = hasItemColor;
+            Gizmos.DrawCube(center, size * 0.4F);
+        }
     }
 }

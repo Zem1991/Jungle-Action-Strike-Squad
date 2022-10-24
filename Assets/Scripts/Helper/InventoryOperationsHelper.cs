@@ -6,13 +6,14 @@ public static class InventoryOperationsHelper
 {
     public static bool Add(Inventory fromInv, Item item)
     {
+        if (!item) return false;
         bool result = false;
         InventorySlot tempSlot = new InventorySlot(typeof(Item), item);
         if (InventoryEquipmentHelper.EquipMainWeapon(fromInv, tempSlot, true)) result = true;
-        else if (InventoryEquipmentHelper.EquipUsableItem(fromInv, tempSlot, true)) result = true;
+        else if (InventoryEquipmentHelper.EquipTool(fromInv, tempSlot, true)) result = true;
         else if (InventoryEquipmentHelper.EquipSidearm(fromInv, tempSlot, true)) result = true;
-        else if (InventoryEquipmentHelper.EquipTorso(fromInv, tempSlot, true)) result = true;
         else if (InventoryEquipmentHelper.EquipHead(fromInv, tempSlot, true)) result = true;
+        else if (InventoryEquipmentHelper.EquipTorso(fromInv, tempSlot, true)) result = true;
         else if (InventoryBackpackHelper.Pack(fromInv, tempSlot)) result = true;
         else if (InventoryEquipmentHelper.EquipPrimaryItem(fromInv, tempSlot, true)) result = true;
         //if (result) item.transform.parent = transform;

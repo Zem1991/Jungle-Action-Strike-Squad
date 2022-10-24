@@ -26,11 +26,11 @@ public partial class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        InitializeSlots();
-        InitializeItems();
+        LoadSlots();
+        LoadItems();
     }
 
-    private void InitializeSlots()
+    private void LoadSlots()
     {
         PrimaryItem = new InventorySlot(typeof(Item));
         Sidearm = new InventorySlot(typeof(Weapon));
@@ -45,7 +45,7 @@ public partial class Inventory : MonoBehaviour
         Backpack4 = new InventorySlot(typeof(Item));
     }
 
-    private void InitializeItems()
+    private void LoadItems()
     {
         Item[] items = GetComponentsInChildren<Item>();
         foreach (Item item in items)

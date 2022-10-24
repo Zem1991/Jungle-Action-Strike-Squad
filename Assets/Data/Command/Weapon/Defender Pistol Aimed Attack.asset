@@ -18,4 +18,4 @@ MonoBehaviour:
     current: 50
   accuracy:
     current: 100
-  attacks: 1
+  attacks: 3

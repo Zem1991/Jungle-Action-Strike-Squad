@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class LevelTile : MonoBehaviour
@@ -14,8 +15,10 @@ public class LevelTile : MonoBehaviour
     
     [Header("Runtime")]
     [SerializeField] private Character character;
+    [SerializeField] private List<ItemPickup> itemPickups = new List<ItemPickup>();
     public Character Character { get => character; private set => character = value; }
-    
+    public List<ItemPickup> ItemPickups { get => itemPickups; private set => itemPickups = value; }
+
     private void Awake()
     {
         textMesh = GetComponentInChildren<TextMesh>();
@@ -43,18 +46,36 @@ public class LevelTile : MonoBehaviour
         return result;
     }
 
-    public bool AddCharacter(Character character)
+    public bool Add(Character character)
     {
+        if (!character) return false;
         if (Character) return false;
         Character = character;
         return true;
     }
 
-    public bool RemoveCharacter(Character character)
+    public bool Remove(Character character)
     {
+        if (!character) return false;
         if (!Character) return false;
         if (Character != character) return false;
         Character = null;
+        return true;
+    }
+
+    public bool Add(ItemPickup item)
+    {
+        if (!item) return false;
+        if (ItemPickups.Contains(item)) return false;
+        ItemPickups.Add(item);
+        return true;
+    }
+
+    public bool Remove(ItemPickup item)
+    {
+        if (!item) return false;
+        if (!ItemPickups.Contains(item)) return false;
+        ItemPickups.Remove(item);
         return true;
     }
 }

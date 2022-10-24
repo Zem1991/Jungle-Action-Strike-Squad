@@ -6,20 +6,37 @@ using UnityEngine;
 public abstract partial class Character : MonoBehaviour
 {
     [Header("Character Data")]
-    [SerializeField] private CharacterData characterData;
+    [SerializeField] protected CharacterData characterData;
     public CharacterData CharacterData { get => characterData; private set => characterData = value; }
 
-    private void Awake()
+    public void Initialize(CharacterData characterData)
     {
+        CharacterData = characterData;
+
         HealthPoints = new Resource(characterData.HealthPointsStart);
         ActionPoints = new Resource(characterData.ActionPointsStart);
+
         SkillSet = new SkillSet(characterData);
+
         //Inventory = new Inventory(characterData);
         Inventory = GetComponent<Inventory>();
+        InventoryCreatorHelper.FullInventory(this, characterData);
     }
+
+    //private void Awake()
+    //{
+    //    HealthPoints = new Resource(characterData.HealthPointsStart);
+    //    ActionPoints = new Resource(characterData.ActionPointsStart);
+    //    SkillSet = new SkillSet(characterData);
+    //    //Inventory = new Inventory(characterData);
+    //    Inventory = GetComponent<Inventory>();
+    //}
 
     private void Start()
     {
+        //TODO: This is here for testing purposes
+        Initialize(CharacterData);
+
         RefreshCommands();
         RefreshGridPosition();
     }

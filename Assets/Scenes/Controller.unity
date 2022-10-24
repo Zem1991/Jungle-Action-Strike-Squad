@@ -1611,6 +1611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1492845439}
   - component: {fileID: 1492845438}
+  - component: {fileID: 1492845440}
   m_Layer: 0
   m_Name: Level Controller
   m_TagString: Untagged
@@ -1647,6 +1648,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1492845440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492845437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c258721e82a102843a3af836f4cf4044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammunition: {fileID: 2826468264519415874, guid: f75460463b42c684caf679c43901ae50, type: 3}
+  consumable: {fileID: 5646080080067342563, guid: fbb85a9a41bdd71429abb4b6a5913c7b, type: 3}
+  rangedWeapon: {fileID: -2043267147013926503, guid: f398cd2a2152ccc45b3e4e06897d918b, type: 3}
+  itemPickup: {fileID: 6981745321560103845, guid: 0cfcd597b561c744a981c44cbeb68810, type: 3}
 --- !u!224 &1560393019 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6479746941351369559, guid: 5b2cbb1ca3bfcd04fba93bbf2b90b171, type: 3}

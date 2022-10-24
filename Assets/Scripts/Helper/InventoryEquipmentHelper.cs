@@ -21,11 +21,11 @@ public static class InventoryEquipmentHelper
         return InventoryOperationsHelper.SwapSlots(fromSlot, fromInv.PrimaryItem);
     }
 
-    public static bool EquipUsableItem(Inventory fromInv, InventorySlot fromSlot, bool checkFilled = false)
+    public static bool EquipTool(Inventory fromInv, InventorySlot fromSlot, bool checkFilled = false)
     {
         if (checkFilled && fromInv.PrimaryItem.IsFilled()) return false;
-        //UsableItem newSource = fromSlot.Current as UsableItem;
-        //if (!newSource) return false;
+        Tool newSource = fromSlot.Current as Tool;
+        if (!newSource) return false;
         return InventoryOperationsHelper.SwapSlots(fromSlot, fromInv.PrimaryItem);
     }
 
@@ -46,16 +46,16 @@ public static class InventoryEquipmentHelper
     public static bool EquipHead(Inventory fromInv, InventorySlot fromSlot, bool checkFilled = false)
     {
         if (checkFilled && fromInv.Head.IsFilled()) return false;
-        //Wearable newSource = fromSlot.Current as Wearable;
-        //if (!newSource || !newSource.IsHead) return false;
+        Wearable newSource = fromSlot.Current as Wearable;
+        if (!newSource || newSource.ItemData.IsHead) return false;
         return InventoryOperationsHelper.SwapSlots(fromSlot, fromInv.Head);
     }
 
     public static bool EquipTorso(Inventory fromInv, InventorySlot fromSlot, bool checkFilled = false)
     {
         if (checkFilled && fromInv.Torso.IsFilled()) return false;
-        //Wearable newSource = fromSlot.Current as Wearable;
-        //if (!newSource || newSource.IsHead) return false;
+        Wearable newSource = fromSlot.Current as Wearable;
+        if (!newSource || !newSource.ItemData.IsHead) return false;
         return InventoryOperationsHelper.SwapSlots(fromSlot, fromInv.Torso);
     }
 }
