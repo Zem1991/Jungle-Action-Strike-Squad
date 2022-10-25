@@ -12,25 +12,22 @@ public class ReloadCommand : Command
         base.Initialize(commandData);
     }
 
-    protected override bool CanExecute(Character actor, LevelTile slot, List<PathfindingNode> path)
+    public override bool CanExecute()
     {
-        Weapon weapon = GetWeapon();
-        RangedWeapon rangedWeapon = weapon as RangedWeapon;
+        RangedWeapon rangedWeapon = GetWeapon();
         if (!rangedWeapon) return false;
         return rangedWeapon.CanReload();
     }
 
-    protected override void StartExecution(Character actor, LevelTile slot, List<PathfindingNode> path, Action onStart, Action onFinish)
+    protected override void StartExecution()
     {
-        base.StartExecution(actor, slot, path, onStart, onFinish);
-        Weapon weapon = GetWeapon();
-        RangedWeapon rangedWeapon = weapon as RangedWeapon;
-        rangedWeapon.Reload(actor);
+        base.StartExecution();
+        RangedWeapon rangedWeapon = GetWeapon();
+        rangedWeapon.Reload(Actor);
     }
 
-    private Weapon GetWeapon()
+    private RangedWeapon GetWeapon()
     {
-        if (CommandData.Sidearm) return Actor.GetSidearm();
-        else return Actor.GetMainWeapon();
+        return Item as RangedWeapon;
     }
 }

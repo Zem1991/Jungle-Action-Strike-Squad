@@ -34,11 +34,16 @@ public class ActionController : AbstractSingleton<ActionController>, IReadableFo
         return Current;
     }
 
-    public bool SetCurrent(CommandData commandData, Character actor, LevelTile slot, List<PathfindingNode> path)
+    public bool SetCurrent(CommandData commandData, Character actor, Item item, LevelTile slot, List<PathfindingNode> path)
     {
         if (HasCurrent()) return false;
+
         Current = CommandPrefabs.Instance.InstantiateCommand(commandData, actor.transform);
-        Current.TryToExecute(actor, slot, path, null, FinishCurrent);
+        Current.SetActor(actor, item);
+        Current.SetTarget(slot, path);
+        Current.SetCallbacks(null, FinishCurrent);
+
+        Current.TryToStartExecution();
         Runtime = 0F;
         actor.SetAction(Current);
         return true;

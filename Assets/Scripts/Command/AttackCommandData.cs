@@ -10,9 +10,4 @@ public class AttackCommandData : CommandData
     [SerializeField][Min(1)] private int attacks = 1;
     public Percent Accuracy { get => accuracy; private set => accuracy = value; }
     public int Attacks { get => attacks; set => attacks = value; }
-
-    public override bool NeedsPathToTarget()
-    {
-        return false;
-    }
 }

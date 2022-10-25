@@ -18,21 +18,21 @@ public class MoveCommand : Command
     private Vector3 direction;
     private Vector3 finalDirection;
 
-    protected override void StartExecution(Character actor, LevelTile slot, List<PathfindingNode> path, Action onStart, Action onFinish)
+    protected override void StartExecution()
     {
-        position = actor.GetPosition();
-        direction = actor.GetDirection();
+        position = Actor.GetPosition();
+        direction = Actor.GetDirection();
         finalDirection = direction;
 
-        int pathCount = path.Count;
+        int pathCount = TargetPath.Count;
         if (pathCount > 1)
         {
-            Vector3 finalPos = path[pathCount - 1].WorldPosition;
-            Vector3 startPos = path[pathCount - 2].WorldPosition;
+            Vector3 finalPos = TargetPath[pathCount - 1].WorldPosition;
+            Vector3 startPos = TargetPath[pathCount - 2].WorldPosition;
             finalDirection = (finalPos - startPos).normalized;
         }
 
-        base.StartExecution(actor, slot, path, onStart, onFinish);
+        base.StartExecution();
     }
 
     public override void UpdateExecution()
@@ -84,7 +84,7 @@ public class MoveCommand : Command
 
     private bool PathCompleted()
     {
-        return node == null && Path.Count <= 0;
+        return node == null && TargetPath.Count <= 0;
     }
 
     private void MovementEnd()
@@ -124,8 +124,8 @@ public class MoveCommand : Command
         if (node != null) return true;
 
         //TODO: Try changing Path to a Queue<PathNode>. Yes, AGAIN.
-        PathfindingNode next = Path[0];
-        Path.RemoveAt(0);
+        PathfindingNode next = TargetPath[0];
+        TargetPath.RemoveAt(0);
 
         int cost = next.WalkingCost;
         if (Actor.ActionPoints.CheckEnough(cost))

@@ -19,21 +19,21 @@ public class AttackCommand : Command
     private Vector3 attackDir;
     private int remaining;
 
-    protected override bool CanExecute(Character actor, LevelTile slot, List<PathfindingNode> path)
+    public override bool CanExecute()
     {
-        Weapon weapon = actor.GetMainWeapon();
+        Weapon weapon = Actor.GetMainWeapon();
         if (!weapon) return false;
 
         bool ammoOK = true;// weapon.CheckAmmo(Data.AmmoCost);
-        bool actionOK = actor.ActionPoints.Current >= CommandData.ActionCostPercent.Current;
+        bool actionOK = Actor.ActionPoints.Current >= CommandData.ActionCost.Current;
         return ammoOK && actionOK;
     }
 
-    protected override void StartExecution(Character actor, LevelTile slot, List<PathfindingNode> path, Action onStart, Action onFinish)
+    protected override void StartExecution()
     {
-        base.StartExecution(actor, slot, path, onStart, onFinish);
+        base.StartExecution();
         startPos = Actor.GetPosition();
-        targetPos = Tile.transform.position;
+        targetPos = TargetTile.transform.position;
         facingDir = (targetPos - startPos).normalized;
         remaining = CommandData.Attacks;
     }

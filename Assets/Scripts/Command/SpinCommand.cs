@@ -16,10 +16,10 @@ public class SpinCommand : Command
     private float timer = 1F;
     private Quaternion startingRotation;
 
-    protected override void StartExecution(Character actor, LevelTile slot, List<PathfindingNode> path, Action onStart, Action onFinish)
+    protected override void StartExecution()
     {
         startingRotation = Actor.transform.rotation;
-        base.StartExecution(actor, slot, path, onStart, onFinish);
+        base.StartExecution();
     }
 
     public override void UpdateExecution()

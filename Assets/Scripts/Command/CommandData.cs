@@ -10,11 +10,16 @@ public abstract class CommandData : ScriptableObject
     public Sprite Sprite { get => sprite; private set => sprite = value; }
     public string Name { get => name; private set => name = value; }
 
-    [Header("CommandData Cost")]
-    //[SerializeField][Min(0)] private int ammoCost;
-    [SerializeField] private Percent actionCostPercent;
-    //public int AmmoCost { get => ammoCost; private set => ammoCost = value; }
-    public Percent ActionCostPercent { get => actionCostPercent; private set => actionCostPercent = value; }
+    [Header("CommandData Settings")]
+    [SerializeField] private RangeType rangeType;
+    [SerializeField] private TargetType targetType;
+    [SerializeField] private Percent actionCost;
+    public RangeType RangeType { get => rangeType; private set => rangeType = value; }
+    public TargetType TargetType { get => targetType; private set => targetType = value; }
+    public Percent ActionCost { get => actionCost; private set => actionCost = value; }
 
-    public abstract bool NeedsPathToTarget();
+    public bool NeedsPathToTarget()
+    {
+        return RangeType == RangeType.MELEE;
+    }
 }
