@@ -29,6 +29,6 @@ MonoBehaviour:
   headWearable: {fileID: 0}
   torsoWearable: {fileID: 0}
   backpack1: {fileID: 11400000, guid: 7b82053aafd4b4b4aa1ff39d82b5bfa9, type: 2}
-  backpack2: {fileID: 0}
-  backpack3: {fileID: 0}
+  backpack2: {fileID: 11400000, guid: 02e9dd4f756d18741bb7f44234c2152d, type: 2}
+  backpack3: {fileID: 11400000, guid: e1dd3902b34cf5048a434f804bf7d311, type: 2}
   backpack4: {fileID: 0}

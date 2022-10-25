@@ -24,11 +24,11 @@ MonoBehaviour:
   mechanics: 10
   computers: 10
   leadership: 10
-  mainItem: {fileID: 0}
+  mainItem: {fileID: 11400000, guid: a6699d5e8aa293341b9c8f109991ab0c, type: 2}
   sidearm: {fileID: 11400000, guid: 5d58f8b89deb5ba4d97f7565dcc071b5, type: 2}
   headWearable: {fileID: 0}
   torsoWearable: {fileID: 0}
-  backpack1: {fileID: 0}
+  backpack1: {fileID: 11400000, guid: 4cbf201bd0e806b43beceee67a2e405b, type: 2}
   backpack2: {fileID: 11400000, guid: 4cbf201bd0e806b43beceee67a2e405b, type: 2}
   backpack3: {fileID: 0}
   backpack4: {fileID: 0}

@@ -20,7 +20,7 @@ public abstract partial class Character : MonoBehaviour
 
         //Inventory = new Inventory(characterData);
         Inventory = GetComponent<Inventory>();
-        InventoryCreatorHelper.FullInventory(this, characterData);
+        InventoryCreatorHelper.FromCharacterData(this, characterData);
     }
 
     //private void Awake()

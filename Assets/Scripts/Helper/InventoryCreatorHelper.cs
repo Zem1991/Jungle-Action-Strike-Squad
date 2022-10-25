@@ -4,28 +4,48 @@ using UnityEngine;
 
 public static class InventoryCreatorHelper
 {
-    public static void FullInventory(Character character, CharacterData characterData)
+    public static void FromCharacterData(Character character, CharacterData characterData)
+    {
+        FromItemData(character, characterData.MainItem);
+        FromItemData(character, characterData.Sidearm);
+        FromItemData(character, characterData.HeadWearable);
+        FromItemData(character, characterData.TorsoWearable);
+        FromItemData(character, characterData.Backpack1);
+        FromItemData(character, characterData.Backpack2);
+        FromItemData(character, characterData.Backpack3);
+        FromItemData(character, characterData.Backpack4);
+    }
+
+    public static void FromItemData(Character character, ItemData itemData)
     {
         LevelPrefabs levelPrefabs = LevelPrefabs.Instance;
         Transform transform = character.transform;
         Inventory inventory = character.Inventory;
 
-        Item mainItem = levelPrefabs.InstantiateItem(characterData.MainItem, transform);
-        Item sidearm = levelPrefabs.InstantiateItem(characterData.Sidearm, transform);
-        Item headWearable = levelPrefabs.InstantiateItem(characterData.HeadWearable, transform);
-        Item torsoWearable = levelPrefabs.InstantiateItem(characterData.TorsoWearable, transform);
-        Item backpack1 = levelPrefabs.InstantiateItem(characterData.Backpack1, transform);
-        Item backpack2 = levelPrefabs.InstantiateItem(characterData.Backpack2, transform);
-        Item backpack3 = levelPrefabs.InstantiateItem(characterData.Backpack3, transform);
-        Item backpack4 = levelPrefabs.InstantiateItem(characterData.Backpack4, transform);
+        Item item = levelPrefabs.InstantiateItem(itemData, transform);
+        SendToInventory(item, inventory);
+    }
 
-        if (mainItem) inventory.Add(mainItem);
-        if (sidearm) inventory.Add(sidearm);
-        if (headWearable) inventory.Add(headWearable);
-        if (torsoWearable) inventory.Add(torsoWearable);
-        if (backpack1) inventory.Add(backpack1);
-        if (backpack2) inventory.Add(backpack2);
-        if (backpack3) inventory.Add(backpack3);
-        if (backpack4) inventory.Add(backpack4);
+    private static void SendToInventory(Item item, Inventory inventory)
+    {
+        if (!item) return;
+        inventory.Add(item);
+        FillAmmunition(item);
+    }
+
+    private static void FillAmmunition(Item item)
+    {
+        RangedWeapon rangedWeapon = item as RangedWeapon;
+        if (!rangedWeapon) return;
+
+        LevelPrefabs levelPrefabs = LevelPrefabs.Instance;
+        Transform transform = item.transform;
+
+        RangedWeaponData rangedWeaponData = rangedWeapon.ItemData;
+        AmmunitionData ammunitionData = rangedWeaponData.DefaultAmmo;
+
+        Ammunition ammunition = levelPrefabs.InstantiateItem(ammunitionData, transform) as Ammunition;
+        ammunition.Initialize(ammunitionData, rangedWeaponData.MagazineSize);
+        rangedWeapon.Load(ammunition, out Ammunition unloaded);
     }
 }

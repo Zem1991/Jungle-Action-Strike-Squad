@@ -22,4 +22,6 @@ MonoBehaviour:
   range: 20
   speed: 0.5
   accuracyModifier: 1
+  magazineSize: 8
+  needsAmmo: 1
   defaultAmmo: {fileID: 11400000, guid: 7b82053aafd4b4b4aa1ff39d82b5bfa9, type: 2}

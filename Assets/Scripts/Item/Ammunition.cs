@@ -11,6 +11,12 @@ public class Ammunition : Item
         base.Initialize(itemData);
     }
 
+    public void Initialize(AmmunitionData itemData, int magazineSize)
+    {
+        Initialize(itemData);
+        Stack = new(magazineSize, magazineSize);
+    }
+
     public override void AfterUse()
     {
         throw new System.NotImplementedException();
