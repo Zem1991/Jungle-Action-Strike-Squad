@@ -8,18 +8,18 @@ public class MovePathHighlight : Highlight
 
     public override void Refresh()
     {
-        ActionController actionController = ActionController.Instance;
+        CommandController actionController = CommandController.Instance;
         if (actionController.HasCurrent())
         {
             Hide();
             return;
         }
 
-        CommandController commandController = CommandController.Instance;
-        CommandData command = commandController.Current;
-        if (command && command.NeedsPathToTarget())
+        AbilityController abilityController = AbilityController.Instance;
+        AbilityData ability = abilityController.Current.AbilityData;
+        if (ability && ability.NeedsPathToTarget())
         {
-            positions = PathfindingHelper.GetWorldPositions(commandController.Path);
+            positions = PathfindingHelper.GetWorldPositions(abilityController.Path);
             lineRenderer.positionCount = positions.Count;
             lineRenderer.SetPositions(positions.ToArray());
             Show();

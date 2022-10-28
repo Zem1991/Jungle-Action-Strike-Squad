@@ -17,11 +17,6 @@ public partial class CameraController : AbstractSingleton<CameraController>, IRe
         cameraHolder = GetComponentInChildren<CameraHolder>();
     }
 
-    private void Update()
-    {
-        UpdateInput();
-    }
-
     private void LateUpdate()
     {
         LevelGrid levelGrid = LevelController.Instance.GetLevelGrid();

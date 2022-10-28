@@ -8,7 +8,7 @@ public partial class HighlightController : AbstractSingleton<HighlightController
     {
         ClearCharacters();
 
-        bool dontRender = ActionController.Instance.HasCurrent();
+        bool dontRender = CommandController.Instance.HasCurrent();
         if (dontRender) return;
 
         if (usingAlternatives)

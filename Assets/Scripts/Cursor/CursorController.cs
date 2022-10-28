@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class CursorController : AbstractSingleton<CursorController>, IReadableForUI
+public class CursorController : AbstractSingleton<CursorController>, IReadableForUI
 {
     private Action OnTileChange;
 
@@ -13,6 +13,8 @@ public partial class CursorController : AbstractSingleton<CursorController>, IRe
     [Header("Runtime Screen")]
     [SerializeField] private bool allowBorderCameraScroll = true;
     [SerializeField] private bool usingCursorCamera;
+    public bool AllowBorderCameraScroll { get => allowBorderCameraScroll; private set => allowBorderCameraScroll = value; }
+    public bool UsingCursorCamera { get => usingCursorCamera; set => usingCursorCamera = value; }
 
     [Header("Runtime Screen")]
     [SerializeField] private Vector2 screenPosition;
@@ -37,7 +39,7 @@ public partial class CursorController : AbstractSingleton<CursorController>, IRe
             if (OnTileChange != null) OnTileChange();
         }
     }
-    
+
     protected override void Awake()
     {
         base.Awake();
@@ -46,8 +48,8 @@ public partial class CursorController : AbstractSingleton<CursorController>, IRe
 
     private void Update()
     {
-        UpdateInput();
         BorderCamera();
+        DragCamera();
     }
 
     private void LateUpdate()
@@ -59,7 +61,7 @@ public partial class CursorController : AbstractSingleton<CursorController>, IRe
     private void LateUpdateScreen()
     {
         ScreenPosition = Input.mousePosition;
-        ScreenDragPosition = usingCursorCamera ? ScreenDragPosition : ScreenPosition;
+        ScreenDragPosition = UsingCursorCamera ? ScreenDragPosition : ScreenPosition;
 
         Vector3Int borderChecks = Vector3Int.zero;
         if (ScreenPosition.x <= 0) borderChecks.x--;
@@ -101,7 +103,7 @@ public partial class CursorController : AbstractSingleton<CursorController>, IRe
 
     private void BorderCamera()
     {
-        if (!allowBorderCameraScroll) return;
+        if (!AllowBorderCameraScroll) return;
         if (BorderChecks == Vector3Int.zero) return;
         Vector3 input = new Vector3
         {
@@ -113,6 +115,8 @@ public partial class CursorController : AbstractSingleton<CursorController>, IRe
 
     private void DragCamera()
     {
+        if (!UsingCursorCamera) return;
+
         Vector2 direction = (ScreenPosition - ScreenDragPosition) / 100F;
         Vector3 input = new Vector3
         {

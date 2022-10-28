@@ -1,4 +1,4 @@
-public enum CommandContext
+public enum AbilityContext
 {
     SELF,
     POSITION,

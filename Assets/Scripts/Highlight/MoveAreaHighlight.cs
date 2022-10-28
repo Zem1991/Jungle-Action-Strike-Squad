@@ -11,7 +11,7 @@ public class MoveAreaHighlight : Highlight
 
     public override void Refresh()
     {
-        ActionController actionController = ActionController.Instance;
+        CommandController actionController = CommandController.Instance;
         if (actionController.HasCurrent())
         {
             TilemapGrid tilemapGrid = GetTilemapGrid();

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class FeedbackMessages : AbstractSingleton<FeedbackMessages>
 {
-    [Header("Command Cost")]
+    [Header("Ability Cost")]
     [SerializeField] public readonly string notEnoughActionPoints = "Not enough Action Points";
 }

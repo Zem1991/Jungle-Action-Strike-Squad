@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class CombatController : AbstractSingleton<CombatController>//, IReadableForUI
+public class CombatController : AbstractSingleton<CombatController>//, IReadableForUI
 {
     [Header("Runtime")]
     [SerializeField] private bool inCombat;
@@ -21,11 +21,6 @@ public partial class CombatController : AbstractSingleton<CombatController>//, I
     private void Start()
     {
         StartCombat();
-    }
-
-    private void Update()
-    {
-        UpdateInput();
     }
 
     public void StartCombat()
@@ -53,7 +48,7 @@ public partial class CombatController : AbstractSingleton<CombatController>//, I
         //TODO: one player can only end its own turn - check it before
 
         SelectionController.Instance.Clear();
-        CommandController.Instance.Clear();
+        AbilityController.Instance.Clear();
 
         if (TurnPhase == PlayerType.LOCAL)
         {

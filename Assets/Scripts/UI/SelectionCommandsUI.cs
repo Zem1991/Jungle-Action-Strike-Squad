@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionCommandsUI : UIPanel
+public class SelectionAbilitysUI : UIPanel
 {
-    [Header("SelectionCommandsUI Awake")]
-    [SerializeField] private List<CommandButtonUI> commandButtons;
+    [Header("SelectionAbilitysUI Awake")]
+    [SerializeField] private List<AbilityButtonUI> abilityButtons;
 
     protected override void Awake()
     {
         base.Awake();
-        commandButtons = new List<CommandButtonUI>(GetComponentsInChildren<CommandButtonUI>());
+        abilityButtons = new List<AbilityButtonUI>(GetComponentsInChildren<AbilityButtonUI>());
     }
 
     public override void Refresh()
@@ -20,9 +20,9 @@ public class SelectionCommandsUI : UIPanel
 
     public void Refresh(Character character)
     {
-        CommandController commandController = CommandController.Instance;
-        CommandData ccCommand = commandController.GetCommand();
-        if (ccCommand)
+        AbilityController abilityController = AbilityController.Instance;
+        AbilityInstance abilityInstance = abilityController.Current;
+        if (abilityInstance != null)
         {
             Hide();
             return;
@@ -33,13 +33,15 @@ public class SelectionCommandsUI : UIPanel
         bool canControl = PlayerController.Instance.OwnedByLocalPlayer(character);
         if (canControl)
         {
-            for (int index = 0; index < commandButtons.Count; index++)
+            for (int index = 0; index < abilityButtons.Count; index++)
             {
-                //Command command = CommandHelper.FromGrabber(character, index);
-                CommandHotkey hotkey = (CommandHotkey)index;
-                bool modeToggle = false;
-                CommandData command = character.GetHotkeyCommand(hotkey, modeToggle);
-                commandButtons[index].Refresh(command);
+                //Ability ability = AbilityHelper.FromGrabber(character, index);
+                //AbilityHotkey hotkey = (AbilityHotkey)index;
+                //bool modeToggle = false;
+                
+                //TODO??
+                //AbilityInstance ability = character.GetHotkeyAbility(hotkey, modeToggle);
+                //abilityButtons[index].Refresh(ability);
             }
             Show();
         }

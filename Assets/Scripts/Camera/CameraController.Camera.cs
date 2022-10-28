@@ -39,9 +39,9 @@ public partial class CameraController : AbstractSingleton<CameraController>
 
     public void CenterOverTargeted()
     {
-        LevelTile slot = CommandController.Instance.Slot;
-        if (!slot) return;
-        Vector3 position = slot.transform.position;
+        LevelTile tile = AbilityController.Instance.Tile;
+        if (!tile) return;
+        Vector3 position = tile.transform.position;
         cameraHolder.Position(position, 1F);
     }
 

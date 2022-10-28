@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class MoveCommand : Command
 {
-    public new MoveCommandData CommandData { get => commandData as MoveCommandData; }
+    public new MoveAbilityData AbilityData { get => abilityData as MoveAbilityData; }
 
-    public void Initialize(MoveCommandData commandData)
+    public void Initialize(MoveAbilityData abilityData, Character actor, Item item)
     {
-        base.Initialize(commandData);
+        base.Initialize(abilityData, actor, item);
     }
 
-    [Header("MoveCommand")]
+    [Header("MoveAbility")]
     private PathfindingNode node;
     private Vector3 position;
     private Vector3 direction;

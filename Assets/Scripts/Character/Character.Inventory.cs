@@ -13,10 +13,10 @@ public abstract partial class Character : MonoBehaviour
         return Inventory.GetMainWeapon();
     }
 
-    //public UsableItem GetUsableItem()
-    //{
-    //    return Inventory.GetUsableItem();
-    //}
+    public Tool GetUsableItem()
+    {
+        return Inventory.GetTool();
+    }
 
     public Item GetPrimaryItem()
     {

@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class CommandButtonUI : UIPanel, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class AbilityButtonUI : UIPanel, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    [Header("CommandButtonUI Awake")]
-    [SerializeField] private CommandSpriteUI spriteUI;
+    [Header("AbilityButtonUI Awake")]
+    [SerializeField] private AbilitySpriteUI spriteUI;
 
-    [Header("CommandButtonUI Runtime")]
-    [SerializeField] private CommandData command;
+    [Header("AbilityButtonUI Runtime")]
+    [SerializeField] private AbilityInstance ability;
 
     protected override void Awake()
     {
         base.Awake();
-        spriteUI = GetComponentInChildren<CommandSpriteUI>();
+        spriteUI = GetComponentInChildren<AbilitySpriteUI>();
     }
 
     public override void Refresh()
@@ -36,14 +35,14 @@ public class CommandButtonUI : UIPanel, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerClick(PointerEventData eventData)
     {
         OnPointerExit(null);
-        CommandController.Instance.DirectRequest(command);
+        AbilityController.Instance.Set(ability, false);
     }
 
-    public void Refresh(CommandData command)
+    public void Refresh(AbilityInstance ability)
     {
-        this.command = command;
-        spriteUI.Refresh(command);
-        if (command)
+        this.ability = ability;
+        spriteUI.Refresh(ability);
+        if (ability != null)
             Show();
         else
             Hide();

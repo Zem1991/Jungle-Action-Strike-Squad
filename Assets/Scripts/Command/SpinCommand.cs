@@ -1,18 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpinCommand : Command
 {
-    public new SpinCommandData CommandData { get => commandData as SpinCommandData; }
+    public new SpinAbilityData AbilityData { get => AbilityData; }
 
-    public void Initialize(SpinCommandData commandData)
+    public void Initialize(SpinAbilityData abilityData, Character actor, Item item)
     {
-        base.Initialize(commandData);
+        base.Initialize(abilityData, actor, item);
     }
 
-    [Header("SpinCommand")]
+    [Header("SpinAbility")]
     private float timer = 1F;
     private Quaternion startingRotation;
 

@@ -1,18 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackCommand : Command
 {
-    public new AttackCommandData CommandData { get => commandData as AttackCommandData; }
+    public new AttackAbilityData AbilityData { get => abilityData as AttackAbilityData; }
 
-    public void Initialize(AttackCommandData commandData)
+    public void Initialize(AttackAbilityData abilityData, Character actor, Item item)
     {
-        base.Initialize(commandData);
+        base.Initialize(abilityData, actor, item);
     }
 
-    [Header("AttackCommand")]
+    [Header("AttackAbility")]
     private Vector3 startPos;
     private Vector3 targetPos;
     private Vector3 facingDir;
@@ -25,7 +24,7 @@ public class AttackCommand : Command
         if (!weapon) return false;
 
         bool ammoOK = true;// weapon.CheckAmmo(Data.AmmoCost);
-        bool actionOK = Actor.ActionPoints.Current >= CommandData.ActionCost.Current;
+        bool actionOK = Actor.ActionPoints.Current >= AbilityData.ActionCost.Current;
         return ammoOK && actionOK;
     }
 
@@ -35,7 +34,7 @@ public class AttackCommand : Command
         startPos = Actor.GetPosition();
         targetPos = TargetTile.transform.position;
         facingDir = (targetPos - startPos).normalized;
-        remaining = CommandData.Attacks;
+        remaining = AbilityData.Attacks;
     }
 
     public override void UpdateExecution()
@@ -71,7 +70,7 @@ public class AttackCommand : Command
         }
         else
         {
-            //Command only truly finishes when projectile collides (I guess?)
+            //Ability only truly finishes when projectile collides (I guess?)
             //FinishExecution();
         }
     }

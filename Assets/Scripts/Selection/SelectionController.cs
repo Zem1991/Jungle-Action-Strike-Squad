@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class SelectionController : AbstractSingleton<SelectionController>
+public class SelectionController : AbstractSingleton<SelectionController>
 {
     //[Header("Runtime")]
     //[SerializeField] private List<Character> selectionList = new List<Character>();
     //public List<Character> SelectionList { get => selectionList; private set => selectionList = value; }
 
-    private void Update()
-    {
-        ActionController actionController = ActionController.Instance;
-        if (actionController.HasCurrent()) return;
-
-        UpdateInput();
-    }
+    //private void Update()
+    //{
+    //    CommandController actionController = CommandController.Instance;
+    //    if (actionController.HasCurrent()) return;
+    //    //UpdateInput();
+    //}
 
     public void Clear()
     {
@@ -29,52 +28,64 @@ public partial class SelectionController : AbstractSingleton<SelectionController
         if (selectionList.Count > 0) return selectionList[0];
         return null;
     }
-    
-    public void Cursor()
+
+    public void Set(Character character)
     {
-        if (CancelCommandInstead()) return;
-
-        LevelTile levelTile = CursorController.Instance.LevelTile;
-        Character character = levelTile?.Character;
-
         List<Character> selectionList = new List<Character>();
         if (character) selectionList.Add(character);
 
         LocalPlayer localPlayer = PlayerController.Instance.Local;
         localPlayer.SetSelection(selectionList);
     }
+    
+    //public void Cursor()
+    //{
+    //    CursorSelectionProcessor processor = new CursorSelectionProcessor();
+    //    processor.Process();
 
-    public void Cycle(bool reverse)
-    {
-        if (CancelCommandInstead()) return;
+    //    if (CancelAbilityInstead()) return;
 
-        Character selected = Get();
-        if (!selected) return;
+    //    LevelTile levelTile = CursorController.Instance.LevelTile;
+    //    Character character = levelTile?.Character;
 
-        LocalPlayer localPlayer = PlayerController.Instance.Local;
-        int index = localPlayer.GetIndex(selected);
-        if (index < 0) return;
+    //    List<Character> selectionList = new List<Character>();
+    //    if (character) selectionList.Add(character);
 
-        int maxValue = localPlayer.CharacterList.Count - 1;
-        if (reverse) index--;
-        else index++;
+    //    LocalPlayer localPlayer = PlayerController.Instance.Local;
+    //    localPlayer.SetSelection(selectionList);
+    //}
 
-        if (index < 0) index = maxValue;
-        else if (index > maxValue) index = 0;
-        Shortcut(index);
-    }
+    //public void Cycle(bool reverse)
+    //{
+    //    if (CancelAbilityInstead()) return;
 
-    public void Shortcut(int index)
-    {
-        if (CancelCommandInstead()) return;
+    //    Character selected = Get();
+    //    if (!selected) return;
 
-        LocalPlayer localPlayer = PlayerController.Instance.Local;
-        bool selectionChanged = localPlayer.SetSelection(index);
-        if (!selectionChanged && localPlayer.HasSelection())
-        {
-            CenterCamera();
-        }
-    }
+    //    LocalPlayer localPlayer = PlayerController.Instance.Local;
+    //    int index = localPlayer.GetIndex(selected);
+    //    if (index < 0) return;
+
+    //    int maxValue = localPlayer.CharacterList.Count - 1;
+    //    if (reverse) index--;
+    //    else index++;
+
+    //    if (index < 0) index = maxValue;
+    //    else if (index > maxValue) index = 0;
+    //    Shortcut(index);
+    //}
+
+    //public void Shortcut(int index)
+    //{
+    //    if (CancelAbilityInstead()) return;
+
+    //    LocalPlayer localPlayer = PlayerController.Instance.Local;
+    //    bool selectionChanged = localPlayer.SetSelection(index);
+    //    if (!selectionChanged && localPlayer.HasSelection())
+    //    {
+    //        CenterCamera();
+    //    }
+    //}
 
     private void CenterCamera()
     {
@@ -83,7 +94,7 @@ public partial class SelectionController : AbstractSingleton<SelectionController
         cameraController.Position(position);
     }
 
-    //public bool CanCommand()
+    //public bool CanAbility()
     //{
     //    if (!HasSelection()) return false;
     //    Character character = GetSelection();

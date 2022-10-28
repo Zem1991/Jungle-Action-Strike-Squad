@@ -9,10 +9,10 @@ public partial class Inventory : MonoBehaviour
         return GetPrimaryItem() as Weapon;
     }
 
-    //public UsableItem GetUsableItem()
-    //{
-    //    return GetPrimaryItem() as UsableItem;
-    //}
+    public Tool GetTool()
+    {
+        return GetPrimaryItem() as Tool;
+    }
 
     public Item GetPrimaryItem()
     {

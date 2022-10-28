@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class UIController : AbstractSingleton<UIController>
+public class UIController : AbstractSingleton<UIController>
 {
     private Canvas canvas;
 
@@ -12,7 +12,7 @@ public partial class UIController : AbstractSingleton<UIController>
 
     [Header("Awake: Extra")]
     [SerializeField] private SelectionUI selectionUI;
-    [SerializeField] private CommandUI commandUI;
+    [SerializeField] private AbilityUI abilityUI;
     [SerializeField] private ActionUI actionUI;
     [SerializeField] private FeedbackUI feedbackUI;
     [SerializeField] private CombatUI combatUI;
@@ -28,8 +28,8 @@ public partial class UIController : AbstractSingleton<UIController>
     [Header("Runtime")]
     [SerializeField] private bool hidingAll;
     [SerializeField] private bool usingAlternatives;
-    public bool HidingAll { get => hidingAll; private set => hidingAll = value; }
-    public bool UsingAlternatives { get => usingAlternatives; private set => usingAlternatives = value; }
+    public bool HidingAll { get => hidingAll; set => hidingAll = value; }
+    public bool UsingAlternatives { get => usingAlternatives; set => usingAlternatives = value; }
 
     protected override void Awake()
     {
@@ -43,7 +43,7 @@ public partial class UIController : AbstractSingleton<UIController>
 
         combatUI = GetComponentInChildren<CombatUI>();
         selectionUI = GetComponentInChildren<SelectionUI>();
-        commandUI = GetComponentInChildren<CommandUI>();
+        abilityUI = GetComponentInChildren<AbilityUI>();
         actionUI = GetComponentInChildren<ActionUI>();
         feedbackUI = GetComponentInChildren<FeedbackUI>();
 
@@ -54,18 +54,13 @@ public partial class UIController : AbstractSingleton<UIController>
         levelUI = GetComponentInChildren<LevelUI>();
     }
 
-    private void Update()
-    {
-        UpdateInput();
-    }
-
     private void LateUpdate()
     {
         canvas.gameObject.SetActive(!HidingAll);
 
         combatUI.Refresh();
         selectionUI.Refresh();
-        commandUI.Refresh();
+        abilityUI.Refresh();
         actionUI.Refresh();
         feedbackUI.Refresh();
 

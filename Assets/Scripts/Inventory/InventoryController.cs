@@ -8,19 +8,13 @@ public partial class InventoryController : AbstractSingleton<InventoryController
     [SerializeField] private Character current;
     public Character Current { get => current; private set => current = value; }
 
-    private void Update()
-    {
-        UpdateInput();
-    }
-
     public bool HasCurrent()
     {
         return Current;
     }
 
-    public void ToggleWindow()
+    public void ToggleWindow(Character actor)
     {
-        Character actor = SelectionController.Instance.Get();
         if (!actor) Close();
         else if (Current == actor) Close();
         else Open(actor);

@@ -9,7 +9,7 @@ public class ActionUI : UIPanel
 
     public override void Refresh()
     {
-        string refreshText = ActionController.Instance.ReadForUI();
+        string refreshText = CommandController.Instance.ReadForUI();
         if (refreshText == null)
         {
             Hide();

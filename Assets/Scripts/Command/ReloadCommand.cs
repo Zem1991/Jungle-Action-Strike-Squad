@@ -1,15 +1,14 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ReloadCommand : Command
 {
-    public new ReloadCommandData CommandData { get => commandData as ReloadCommandData; }
+    public new ReloadAbilityData AbilityData { get => abilityData as ReloadAbilityData; }
 
-    public void Initialize(ReloadCommandData commandData)
+    public void Initialize(ReloadAbilityData abilityData, Character actor, Item item)
     {
-        base.Initialize(commandData);
+        base.Initialize(abilityData, actor, item);
     }
 
     public override bool CanExecute()

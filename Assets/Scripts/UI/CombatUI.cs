@@ -30,7 +30,7 @@ public class CombatUI : UIPanel
         //    Show();
         //}
 
-        ActionController actionController = ActionController.Instance;
+        CommandController actionController = CommandController.Instance;
         bool showEndTurnButton = !actionController.HasCurrent();
         endTurnButton.gameObject.SetActive(showEndTurnButton);
     }

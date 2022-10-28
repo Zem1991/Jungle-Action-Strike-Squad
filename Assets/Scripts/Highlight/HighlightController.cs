@@ -41,11 +41,6 @@ public partial class HighlightController : AbstractSingleton<HighlightController
         CursorController.Instance.AddOnTileChangeAction(CreateCharacterHighlights);
     }
 
-    private void Update()
-    {
-        UpdateInput();
-    }
-
     private void LateUpdate()
     {
         cursorTile.Refresh();
@@ -62,8 +57,9 @@ public partial class HighlightController : AbstractSingleton<HighlightController
         }
     }
 
-    private void ToggleAlternatives(bool toggle)
+    public void ToggleAlternatives(bool toggle)
     {
+        if (usingAlternatives == toggle) return;
         usingAlternatives = toggle;
         CreateCharacterHighlights();
     }

@@ -6,7 +6,7 @@ public partial class InventoryUI : UIPanel
 {
     public override void Refresh()
     {
-        ActionController actionController = ActionController.Instance;
+        CommandController actionController = CommandController.Instance;
         if (actionController.HasCurrent())
         {
             Hide();
@@ -18,7 +18,7 @@ public partial class InventoryUI : UIPanel
         {
             RefreshData(character);
             RefreshSlots(character);
-            character.RefreshCommands();
+            character.RefreshAbilitys();
             Show();
         }
         else

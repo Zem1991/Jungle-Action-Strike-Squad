@@ -5,13 +5,18 @@ using UnityEngine;
 
 public abstract class Command : MonoBehaviour
 {
-    [Header("Data")]
-    [SerializeField] protected CommandData commandData;
-    public CommandData CommandData { get => commandData; private set => commandData = value; }
+    //[Header("Ability Instance")]
+    //[SerializeField] protected AbilityInstance abilityInstance;
+    //public AbilityInstance AbilityInstance { get => abilityInstance; private set => abilityInstance = value; }
+    //public AbilityData AbilityData { get => AbilityInstance.AbilityData; }
+    //public Character Actor { get => AbilityInstance.Character; }
+    //public Item Item { get => AbilityInstance.Item; }
 
-    [Header("Actor")]
+    [Header("Ability Instance")]
+    [SerializeField] protected AbilityData abilityData;
     [SerializeField] private Character actor;
     [SerializeField] private Item item;
+    public AbilityData AbilityData { get => abilityData; private set => abilityData = value; }
     public Character Actor { get => actor; private set => actor = value; }
     public Item Item { get => item; private set => item = value; }
 
@@ -27,16 +32,14 @@ public abstract class Command : MonoBehaviour
     public Action OnStart { get => onStart; private set => onStart = value; }
     public Action OnFinish { get => onFinish; private set => onFinish = value; }
 
-    public void Initialize(CommandData commandData)
+    public void Initialize(AbilityData abilityData, Character actor, Item item)
     {
-        CommandData = commandData;
-    }
-
-    public void SetActor(Character actor, Item item)
-    {
+        AbilityData = abilityData;
         Actor = actor;
         Item = item;
     }
+
+    //public abstract void Initialize(AbilityInstance abilityInstance);
 
     public void SetTarget(LevelTile targetTile, List<PathfindingNode> targetPath)
     {
@@ -65,7 +68,8 @@ public abstract class Command : MonoBehaviour
 
     protected virtual void StartExecution()
     {
-        CostHelper.ApplyCosts(CommandData, Actor);
+        CostHelper.ApplyCosts(AbilityData, Actor);
+        Actor.SetCommand(this);
         if (OnStart != null) OnStart();
     }
 
@@ -76,6 +80,7 @@ public abstract class Command : MonoBehaviour
 
     protected virtual void FinishExecution()
     {
+        Actor.SetCommand(null);
         if (OnFinish != null) OnFinish();
     }
 }

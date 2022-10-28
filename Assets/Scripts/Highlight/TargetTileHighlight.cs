@@ -6,18 +6,18 @@ public class TargetTileHighlight : Highlight
 {
     public override void Refresh()
     {
-        ActionController actionController = ActionController.Instance;
+        CommandController actionController = CommandController.Instance;
         if (actionController.HasCurrent())
         {
             Hide();
             return;
         }
 
-        CommandController commandController = CommandController.Instance;
-        LevelTile targetSlot = commandController.Slot;
-        if (targetSlot)
+        AbilityController abilityController = AbilityController.Instance;
+        LevelTile targetTile = abilityController.Tile;
+        if (targetTile)
         {
-            transform.position = targetSlot.transform.position;
+            transform.position = targetTile.transform.position;
             Show();
         }
         else

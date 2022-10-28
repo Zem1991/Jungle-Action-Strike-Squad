@@ -9,13 +9,16 @@ public class CommandPrefabs : AbstractSingleton<CommandPrefabs>
     [SerializeField] private AttackCommand attack;
     [SerializeField] private ReloadCommand reload;
 
-    public Command InstantiateCommand(CommandData commandData, Transform transform)
+    public Command Instantiate(AbilityInstance abilityInstance)
     {
-        if (!commandData) return null;
+        if (abilityInstance == null) return null;
 
-        SpinCommandData spinD = commandData as SpinCommandData;
-        MoveCommandData moveD = commandData as MoveCommandData;
-        AttackCommandData attackD = commandData as AttackCommandData;
+        AbilityData abilityData = abilityInstance.AbilityData;
+        Transform transform = abilityInstance.Actor.transform;
+
+        SpinAbilityData spinD = abilityData as SpinAbilityData;
+        MoveAbilityData moveD = abilityData as MoveAbilityData;
+        AttackAbilityData attackD = abilityData as AttackAbilityData;
 
         Command prefab = null;
         if (spinD) prefab = spin;
@@ -23,7 +26,7 @@ public class CommandPrefabs : AbstractSingleton<CommandPrefabs>
         else if (attackD) prefab = attack;
 
         Command result = Instantiate(prefab, transform);
-        result.Initialize(commandData);
+        result.Initialize(abilityInstance.AbilityData, abilityInstance.Actor, abilityInstance.Item);
         return result;
     }
 }

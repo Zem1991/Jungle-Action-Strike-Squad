@@ -37,7 +37,7 @@ public abstract partial class Character : MonoBehaviour
         //TODO: This is here for testing purposes
         Initialize(CharacterData);
 
-        RefreshCommands();
+        RefreshAbilitys();
         RefreshGridPosition();
     }
 

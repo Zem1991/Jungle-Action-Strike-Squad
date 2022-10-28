@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CommandSpriteUI : MonoBehaviour
+public class AbilitySpriteUI : MonoBehaviour
 {
     [Header("Awake")]
     [SerializeField] private Image spriteBack;
@@ -16,13 +16,13 @@ public class CommandSpriteUI : MonoBehaviour
         spriteFront = sprites[1];
     }
 
-    public void Refresh(CommandData command)
+    public void Refresh(AbilityInstance ability)
     {
-        if (command)
+        if (ability != null)
         {
             spriteBack.enabled = true;
             spriteFront.enabled = true;
-            spriteFront.sprite = command.Sprite;
+            spriteFront.sprite = ability.AbilityData.Sprite;
         }
         else
         {
