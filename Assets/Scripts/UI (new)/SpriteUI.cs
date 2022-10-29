@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AbilitySpriteUI : MonoBehaviour
+public abstract class SpriteUI<T> : MonoBehaviour
 {
-    [Header("Awake")]
+    [Header("SpriteUI Awake")]
     [SerializeField] private Image spriteBack;
     [SerializeField] private Image spriteFront;
 
@@ -16,13 +16,13 @@ public class AbilitySpriteUI : MonoBehaviour
         spriteFront = sprites[1];
     }
 
-    public void Refresh(AbilityInstance ability)
+    public void Refresh(T thing)
     {
-        if (ability != null)
+        if (thing != null)
         {
             spriteBack.enabled = true;
             spriteFront.enabled = true;
-            spriteFront.sprite = ability.AbilityData.Sprite;
+            spriteFront.sprite = GetSprite(thing);
         }
         else
         {
@@ -31,4 +31,6 @@ public class AbilitySpriteUI : MonoBehaviour
             spriteFront.sprite = null;
         }
     }
+
+    protected abstract Sprite GetSprite(T thing);
 }

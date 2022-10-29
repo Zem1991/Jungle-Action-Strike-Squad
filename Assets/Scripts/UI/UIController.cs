@@ -12,7 +12,7 @@ public class UIController : AbstractSingleton<UIController>
 
     [Header("Awake: Extra")]
     [SerializeField] private SelectionUI selectionUI;
-    [SerializeField] private AbilityUI abilityUI;
+    [SerializeField] private AbilityInstanceUI abilityUI;
     [SerializeField] private ActionUI actionUI;
     [SerializeField] private FeedbackUI feedbackUI;
     [SerializeField] private CombatUI combatUI;
@@ -43,7 +43,7 @@ public class UIController : AbstractSingleton<UIController>
 
         combatUI = GetComponentInChildren<CombatUI>();
         selectionUI = GetComponentInChildren<SelectionUI>();
-        abilityUI = GetComponentInChildren<AbilityUI>();
+        abilityUI = GetComponentInChildren<AbilityInstanceUI>();
         actionUI = GetComponentInChildren<ActionUI>();
         feedbackUI = GetComponentInChildren<FeedbackUI>();
 

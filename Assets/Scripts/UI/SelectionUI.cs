@@ -7,7 +7,7 @@ public class SelectionUI : UIPanel
     [Header("SelectionUI Awake")]
     [SerializeField] private SelectionBarUI bar;
     [SerializeField] private SelectionProfileUI profile;
-    [SerializeField] private SelectionAbilitysUI abilitys;
+    [SerializeField] private SelectionAbilitiesUI abilities;
     [SerializeField] private SelectionEquipmentUI equipment;
 
     protected override void Awake()
@@ -15,7 +15,7 @@ public class SelectionUI : UIPanel
         base.Awake();
         bar = GetComponentInChildren<SelectionBarUI>();
         profile = GetComponentInChildren<SelectionProfileUI>();
-        abilitys = GetComponentInChildren<SelectionAbilitysUI>();
+        abilities = GetComponentInChildren<SelectionAbilitiesUI>();
         equipment = GetComponentInChildren<SelectionEquipmentUI>();
     }
     
@@ -33,7 +33,7 @@ public class SelectionUI : UIPanel
         {
             bar.Refresh(character);
             profile.Refresh(character);
-            abilitys.Refresh(character);
+            abilities.Refresh(character);
             equipment.Refresh(character);
             Show();
         }

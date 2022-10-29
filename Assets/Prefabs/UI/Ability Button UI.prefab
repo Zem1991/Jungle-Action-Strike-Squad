@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2511377577248974497}
   - component: {fileID: 4931586363102286168}
   m_Layer: 0
-  m_Name: Command Button UI
+  m_Name: Ability Button UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 682384511910094420}
   m_Father: {fileID: 0}
@@ -90,8 +91,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  spriteUI: {fileID: 0}
-  command: {fileID: 0}
+  spriteUI: {fileID: 4635599900087833160}
+  ability:
+    abilityData: {fileID: 0}
+    actor: {fileID: 0}
+    item: {fileID: 0}
 --- !u!1001 &9134883904974163070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,7 +105,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3233830107930311866, guid: 9f91e531ff37e834cb2545321172cfe3, type: 3}
       propertyPath: m_Name
-      value: Command Sprite UI
+      value: Ability Sprite UI
       objectReference: {fileID: 0}
     - target: {fileID: 8628318106664184362, guid: 9f91e531ff37e834cb2545321172cfe3, type: 3}
       propertyPath: m_Pivot.x
@@ -194,3 +198,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8628318106664184362, guid: 9f91e531ff37e834cb2545321172cfe3, type: 3}
   m_PrefabInstance: {fileID: 9134883904974163070}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4635599900087833160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4508478225860091446, guid: 9f91e531ff37e834cb2545321172cfe3, type: 3}
+  m_PrefabInstance: {fileID: 9134883904974163070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48cf3f13422a264a9282b260040668b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

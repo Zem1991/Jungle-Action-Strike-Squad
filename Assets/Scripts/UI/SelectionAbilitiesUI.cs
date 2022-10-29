@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionAbilitysUI : UIPanel
+public class SelectionAbilitiesUI : UIPanel
 {
     [Header("SelectionAbilitysUI Awake")]
     [SerializeField] private List<AbilityButtonUI> abilityButtons;
