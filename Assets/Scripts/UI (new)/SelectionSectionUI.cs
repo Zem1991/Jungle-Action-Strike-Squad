@@ -24,7 +24,7 @@ public abstract class SelectionSectionUI : UIDropdownPanel<AbilityInstance, Abil
 
     protected override AbilityInstanceUI InitializeUIObject(AbilityInstance source)
     {
-        AbilityInstanceUI result = UIPrefabs.Instance.Instantiate(source);
+        AbilityInstanceUI result = UIPrefabs.Instance.Instantiate(source, transform);
         return result;
     }
 

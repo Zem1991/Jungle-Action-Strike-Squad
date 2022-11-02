@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,5 +28,12 @@ public class PlayerController : AbstractSingleton<PlayerController>//, IReadable
     {
         if (!character) return false;
         return Enemy && Enemy == character.Owner;
+    }
+
+    public Player GetFromType(PlayerType turnPhase)
+    {
+        if (turnPhase == PlayerType.LOCAL) return Local;
+        if (turnPhase == PlayerType.ENEMY) return Enemy;
+        return null;
     }
 }

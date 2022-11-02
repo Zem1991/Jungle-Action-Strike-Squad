@@ -6,6 +6,11 @@ public abstract class Player : MonoBehaviour
 {
     public abstract PlayerType GetPlayerType();
 
+    [Header("Player identification")]
+    [SerializeField] private PlayerColorsData playerColorsData;
+    public PlayerColorsData PlayerColorsData { get => playerColorsData; private set => playerColorsData = value; }
+
+    [Header("Player characters")]
     [SerializeField] private List<Character> characterList = new List<Character>();
     [SerializeField] private List<Character> selectionList = new List<Character>();
     public List<Character> CharacterList { get => characterList; private set => characterList = value; }

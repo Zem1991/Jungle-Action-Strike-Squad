@@ -11,8 +11,7 @@ public abstract partial class Character : MonoBehaviour
 
     public bool ChangeOwner(Player player)
     {
-        PlayerType playerType = player.GetPlayerType();
-        Color color = PlayerColors.GetPanelBackground(playerType);
+        Color color = player.PlayerColorsData.GetUI();
         PlayerColorTag playerColorTag = new(color);
         playerColorTag.Apply(gameObject);
         Owner = player;

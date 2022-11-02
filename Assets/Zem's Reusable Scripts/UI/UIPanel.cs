@@ -30,20 +30,20 @@ public abstract class UIPanel : MonoBehaviour
     //    return result;
     //}
 
-    public void ChangeBackgroundColor(Character character)
-    {
-        if (!character) return;
-        PlayerType playerType = character.Owner.GetPlayerType();
-        ChangeBackgroundColor(playerType);
-    }
+    //public void ChangeBackgroundColor(Character character)
+    //{
+    //    if (!character) return;
+    //    PlayerType playerType = character.Owner.GetPlayerType();
+    //    ChangeBackgroundColor(playerType);
+    //}
 
-    public void ChangeBackgroundColor(PlayerType playerType)
-    {
-        Color color = PlayerColors.GetPanelBackground(playerType);
-        ChangeBackgroundColor(color);
-    }
+    //public void ChangeBackgroundColor(PlayerType playerType)
+    //{
+    //    Color color = PlayerColors.GetPanelBackground(playerType);
+    //    ChangeBackgroundColor(color);
+    //}
 
-    private void ChangeBackgroundColor(Color color)
+    protected void ChangeBackgroundColor(Color color)
     {
         if (!background) return;
         background.color = color;

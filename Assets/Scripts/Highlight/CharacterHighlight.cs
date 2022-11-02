@@ -24,8 +24,7 @@ public class CharacterHighlight : Highlight
             return;
         }
 
-        PlayerType playerType = character.Owner.GetPlayerType();
-        Color color = PlayerColors.GetPanelBackground(playerType);
+        Color color = character.Owner.PlayerColorsData.GetHighlight();
         background.color = color;
 
         charName.text = Character.CharacterData.Name;
