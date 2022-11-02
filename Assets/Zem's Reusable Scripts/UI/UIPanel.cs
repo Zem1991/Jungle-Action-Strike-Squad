@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class UIPanel : MonoBehaviour
 {
-    [Header("Awake")]
+    [Header("UIPanel Awake")]
     [SerializeField] protected Image background;
 
     protected virtual void Awake()

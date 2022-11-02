@@ -33,11 +33,6 @@ public class Resource
         Maximum = maximum;
     }
 
-    public override string ToString()
-    {
-        return $"{Current}/{Maximum}";
-    }
-
     public void MakeFull()
     {
         Add(Maximum);
@@ -69,6 +64,16 @@ public class Resource
         if (mustHaveEnough && !CheckEnough(amount)) return false;
         Current = Mathf.Clamp(Current - amount, 0, Maximum);
         return true;
+    }
+
+    public float GetFillAmount()
+    {
+        return Current / Maximum;
+    }
+
+    public string GetTextAmount()
+    {
+        return $"{Current} / {Maximum}";
     }
 
     public float PercentToAmount(int percent)

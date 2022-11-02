@@ -22,10 +22,12 @@ public class SidearmAbilitySet : AbilitySet
         AbilityDataHandler prefabs = AbilityDataHandler.Instance;
 
         Sidearm = character.GetSidearm();
-        RangedWeapon rangedSidearm = Sidearm as RangedWeapon;
+        if (!Sidearm) return;
 
         Ability1 = CreateAbilityInstance(Sidearm.ItemData.Ability1, Sidearm);
         Ability2 = CreateAbilityInstance(Sidearm.ItemData.Ability2, Sidearm);
+
+        RangedWeapon rangedSidearm = Sidearm as RangedWeapon;
         if (rangedSidearm)
         {
             Overwatch = CreateAbilityInstance(prefabs.Overwatch, Sidearm);

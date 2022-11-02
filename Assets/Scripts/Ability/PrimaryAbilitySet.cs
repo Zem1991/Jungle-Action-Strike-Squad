@@ -22,10 +22,12 @@ public class PrimaryAbilitySet : AbilitySet
         AbilityDataHandler prefabs = AbilityDataHandler.Instance;
 
         PrimaryItem = character.GetPrimaryItem();
-        RangedWeapon primaryWeapon = PrimaryItem as RangedWeapon;
+        if (!PrimaryItem) return;
 
         Ability1 = CreateAbilityInstance(PrimaryItem.ItemData.Ability1, PrimaryItem);
         Ability2 = CreateAbilityInstance(PrimaryItem.ItemData.Ability2, PrimaryItem);
+
+        RangedWeapon primaryWeapon = PrimaryItem as RangedWeapon;
         if (primaryWeapon)
         {
             Overwatch = CreateAbilityInstance(prefabs.Overwatch, PrimaryItem);

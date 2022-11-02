@@ -6,17 +6,19 @@ public class SelectionUI : UIPanel
 {
     [Header("SelectionUI Awake")]
     [SerializeField] private SelectionBarUI bar;
-    [SerializeField] private SelectionProfileUI profile;
-    [SerializeField] private SelectionAbilitiesUI abilities;
-    [SerializeField] private SelectionEquipmentUI equipment;
+    [SerializeField] private SelectionCharacterAbilitiesUI characterAbilities;
+    [SerializeField] private SelectionPrimaryAbilitiesUI primaryAbilities;
+    [SerializeField] private SelectionSidearmAbilitiesUI sidearmAbilities;
+    [SerializeField] private SelectionBackpackAbilitiesUI backpackAbilities;
 
     protected override void Awake()
     {
         base.Awake();
         bar = GetComponentInChildren<SelectionBarUI>();
-        profile = GetComponentInChildren<SelectionProfileUI>();
-        abilities = GetComponentInChildren<SelectionAbilitiesUI>();
-        equipment = GetComponentInChildren<SelectionEquipmentUI>();
+        characterAbilities = GetComponentInChildren<SelectionCharacterAbilitiesUI>();
+        primaryAbilities = GetComponentInChildren<SelectionPrimaryAbilitiesUI>();
+        sidearmAbilities = GetComponentInChildren<SelectionSidearmAbilitiesUI>();
+        backpackAbilities = GetComponentInChildren<SelectionBackpackAbilitiesUI>();
     }
     
     public override void Refresh()
@@ -31,10 +33,11 @@ public class SelectionUI : UIPanel
         Character character = SelectionController.Instance.Get();
         if (character)
         {
-            bar.Refresh(character);
-            profile.Refresh(character);
-            abilities.Refresh(character);
-            equipment.Refresh(character);
+            bar.Refresh();
+            characterAbilities.Refresh();
+            primaryAbilities.Refresh();
+            sidearmAbilities.Refresh();
+            backpackAbilities.Refresh();
             Show();
         }
         else

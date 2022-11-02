@@ -25,11 +25,16 @@ public class TilemapGrid : MonoBehaviour
     public void RenderMoveArea(List<Vector3Int> moveAreaPositions)//, Character character)
     {
         ClearMoveArea();
-        Tile tile = new Tile
-        {
-            colliderType = Tile.ColliderType.None,
-            sprite = GetMoveAreaSprite()
-        };
+
+        //Tile tile = new Tile
+        //{
+        //    colliderType = Tile.ColliderType.None,
+        //    sprite = GetMoveAreaSprite()
+        //};
+        Tile tile = (Tile)ScriptableObject.CreateInstance(typeof(Tile));
+        tile.colliderType = Tile.ColliderType.None;
+        tile.sprite = GetMoveAreaSprite();
+
         foreach (Vector3Int forPos in moveAreaPositions)
         {
             moveArea.SetTile(forPos, tile);

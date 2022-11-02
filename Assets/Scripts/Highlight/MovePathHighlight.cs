@@ -16,7 +16,7 @@ public class MovePathHighlight : Highlight
         }
 
         AbilityController abilityController = AbilityController.Instance;
-        AbilityData ability = abilityController.Current.AbilityData;
+        AbilityData ability = abilityController.Current?.AbilityData;
         if (ability && ability.NeedsPathToTarget())
         {
             positions = PathfindingHelper.GetWorldPositions(abilityController.Path);

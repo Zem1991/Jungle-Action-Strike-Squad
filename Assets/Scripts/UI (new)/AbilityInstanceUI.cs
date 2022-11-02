@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,20 +18,30 @@ public class AbilityInstanceUI : UIPanel
     [Header("Runtime")]
     [SerializeField] private AbilityInstance ability;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        //Fix for Serialization creating empty objects instead of null objects
+        ability = null;
+    }
+
     public override void Refresh()
     {
-        AbilityController abilityController = AbilityController.Instance;
-        ability = abilityController.Current;
-
         if (ability == null)
         {
             Hide();
             return;
         }
 
-        string abilityNameText = abilityController.ReadForUI();
         abilitySprite.Refresh(ability);
-        abilityName.text = abilityNameText;
+        abilityName.text = ability.AbilityData.Name;
         Show();
+    }
+
+    public void Initialize(AbilityInstance abilityInstance)
+    {
+        ability = abilityInstance;
+        Refresh();
     }
 }

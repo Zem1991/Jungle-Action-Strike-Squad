@@ -6,6 +6,7 @@ public class HotkeySpriteUI : SpriteUI<string>
 {
     protected override Sprite GetSprite(string hotkey)
     {
+        //TODO: something instead of string?
         return null;
     }
 }

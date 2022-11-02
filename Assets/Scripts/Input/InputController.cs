@@ -22,6 +22,7 @@ public class InputController : AbstractSingleton<InputController>
     private void Start()
     {
         AbilityInputReader = new();
+        CameraInputReader = new();
         CombatInputReader = new();
         CursorInputReader = new();
         HighlightInputReader = new();

@@ -18,5 +18,17 @@ public abstract class AbilitySet
         return new AbilityInstance(abilityData, Character, item);
     }
 
+    public Dictionary<int, AbilityInstance> GetAllIndexed()
+    {
+        Dictionary<int, AbilityInstance> result = new Dictionary<int, AbilityInstance>();
+        //TODO: HARDCODED VALUE HERE
+        for (int index = 0; index < 8; index++)
+        {
+            AbilityInstance abilityInstance = GetFromIndex(index);
+            result.Add(index, abilityInstance);
+        }
+        return result;
+    }
+
     public abstract AbilityInstance GetFromIndex(int index);
 }

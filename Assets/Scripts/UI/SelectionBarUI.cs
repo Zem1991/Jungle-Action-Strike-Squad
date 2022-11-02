@@ -1,25 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class SelectionBarUI : UIPanel
 {
-    //[Header("SelectionBarUI Awake")]
-    //[SerializeField] private CharacterButtonUI characterButton;
-
     protected override void Awake()
     {
         base.Awake();
-        //characterButton = GetComponentInChildren<CharacterButtonUI>();
     }
 
     public override void Refresh()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void Refresh(Character character)
-    {
+        Character character = SelectionController.Instance.Get();
         ChangeBackgroundColor(character);
     }
 }

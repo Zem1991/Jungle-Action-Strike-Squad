@@ -11,11 +11,12 @@ public class BackpackAbilitySet : AbilitySet
 
     public BackpackAbilitySet(Character character) : base(character)
     {
-        throw new System.NotImplementedException();
+        Debug.LogWarning("TODO BackpackAbilitySet");
     }
 
     public override AbilityInstance GetFromIndex(int index)
     {
-        throw new System.NotImplementedException();
+        Debug.LogWarning("TODO GetFromIndex");
+        return null;
     }
 }
