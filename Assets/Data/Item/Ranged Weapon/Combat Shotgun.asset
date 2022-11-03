@@ -16,8 +16,8 @@ MonoBehaviour:
   name: Combat Shotgun
   stackStart: 1
   stackLimit: 1
-  command1: {fileID: 11400000, guid: eb7a11bcc79d2624b8860e763a804172, type: 2}
-  command2: {fileID: 11400000, guid: a00c55bba6e1ef8479bd814350a1b2ad, type: 2}
+  ability1: {fileID: 11400000, guid: eb7a11bcc79d2624b8860e763a804172, type: 2}
+  ability2: {fileID: 11400000, guid: a00c55bba6e1ef8479bd814350a1b2ad, type: 2}
   isSidearm: 0
   range: 20
   speed: 0.5

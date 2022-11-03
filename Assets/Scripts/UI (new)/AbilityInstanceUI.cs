@@ -2,41 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class AbilityInstanceUI : UIPanel
+public class AbilityInstanceUI : UIPanel, IPointerClickHandler
 {
     [Header("Scene")]
-    [SerializeField] private AbilitySpriteUI abilitySprite;
-    [SerializeField] private Text abilityName;
-    [SerializeField] private Text targetType;
-    [SerializeField] private Text itemRange;
-    [SerializeField] private Text apCost;
-    [SerializeField] private Text skillAccuracy;
-    [SerializeField] private Text itemAccuracy;
+    [SerializeField] private AbilityBasicsUI abilityBasics;
+    [SerializeField] private ItemSpriteUI itemSpriteUI;
 
     [Header("Runtime")]
-    [SerializeField] private AbilityInstance ability;
+    [SerializeField] private AbilityInstance ability = null;
 
     protected override void Awake()
     {
         base.Awake();
 
-        //Fix for Serialization creating empty objects instead of null objects
-        ability = null;
+        abilityBasics = GetComponentInChildren<AbilityBasicsUI>();
+        itemSpriteUI = GetComponentInChildren<ItemSpriteUI>();
+
+        ////Fix for Serialization creating empty objects instead of null objects
+        //ability = null;
     }
 
     public override void Refresh()
     {
-        if (ability == null)
-        {
-            Hide();
-            return;
-        }
+        //if (ability == null)
+        //{
+        //    Hide();
+        //    return;
+        //}
 
-        abilitySprite.Refresh(ability);
-        abilityName.text = ability.AbilityData.Name;
-        Show();
+        abilityBasics.Refresh(ability);
+        itemSpriteUI.Refresh(ability.Item);
+
+        //Show();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        AbilityController.Instance.Set(ability, false);
     }
 
     public void Initialize(AbilityInstance abilityInstance)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemBasicsUI : MonoBehaviour
 {
-    [Header("CharacterBasicsUI Awake")]
+    [Header("ItemBasicsUI Awake")]
     [SerializeField] private ItemSpriteUI itemSprite;
     [SerializeField] private RangedWeaponAmmunitionBarUI rangedWeaponAmmunitionBar;
 

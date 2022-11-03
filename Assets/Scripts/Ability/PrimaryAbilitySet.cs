@@ -7,10 +7,10 @@ public class PrimaryAbilitySet : AbilitySet
 {
     [Header("Primary")]
     [SerializeField] private Item primaryItem;
-    [SerializeField] private AbilityInstance ability1;
-    [SerializeField] private AbilityInstance ability2;
-    [SerializeField] private AbilityInstance overwatch;
-    [SerializeField] private AbilityInstance reload;
+    [SerializeField] private AbilityInstance ability1 = null;
+    [SerializeField] private AbilityInstance ability2 = null;
+    [SerializeField] private AbilityInstance overwatch = null;
+    [SerializeField] private AbilityInstance reload = null;
     public Item PrimaryItem { get => primaryItem; private set => primaryItem = value; }
     public AbilityInstance Ability1 { get => ability1; private set => ability1 = value; }
     public AbilityInstance Ability2 { get => ability2; private set => ability2 = value; }
@@ -19,7 +19,11 @@ public class PrimaryAbilitySet : AbilitySet
 
     public PrimaryAbilitySet(Character character) : base(character)
     {
-        AbilityDataHandler prefabs = AbilityDataHandler.Instance;
+        ////Fix for Serialization creating empty objects instead of null objects
+        //Ability1 = null;
+        //Ability2 = null;
+        //Overwatch = null;
+        //Reload = null;
 
         PrimaryItem = character.GetPrimaryItem();
         if (!PrimaryItem) return;
@@ -30,6 +34,7 @@ public class PrimaryAbilitySet : AbilitySet
         RangedWeapon primaryWeapon = PrimaryItem as RangedWeapon;
         if (primaryWeapon)
         {
+            AbilityDataHandler prefabs = AbilityDataHandler.Instance;
             Overwatch = CreateAbilityInstance(prefabs.Overwatch, PrimaryItem);
             Reload = CreateAbilityInstance(prefabs.PrimaryThrow, PrimaryItem);
         }

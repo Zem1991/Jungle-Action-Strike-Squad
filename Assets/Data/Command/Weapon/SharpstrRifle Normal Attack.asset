@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7611b85c2438562419ce019d5fd46926, type: 3}
-  m_Name: Combat Shotgun Normal Attack
+  m_Name: SharpstrRifle Normal Attack
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: ee420252b917eaa4e8409c110c1f2e45, type: 3}
   name: Normal Attack
-  actionCostPercent:
-    current: 25
+  rangeType: 0
+  targetType: 0
+  actionCost:
+    current: 30
   accuracy:
     current: 50
   attacks: 1

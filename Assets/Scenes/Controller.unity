@@ -2741,6 +2741,7 @@ MonoBehaviour:
   feedbackUI: {fileID: 0}
   combatUI: {fileID: 0}
   inventoryUI: {fileID: 0}
+  uiDebugUI: {fileID: 0}
   cameraUI: {fileID: 0}
   cursorUI: {fileID: 0}
   levelUI: {fileID: 0}

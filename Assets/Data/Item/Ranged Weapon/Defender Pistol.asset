@@ -16,8 +16,8 @@ MonoBehaviour:
   name: Defender Pistol
   stackStart: 1
   stackLimit: 1
-  command1: {fileID: 11400000, guid: b756b0992f9c6914283766e42eea2502, type: 2}
-  command2: {fileID: 11400000, guid: 5cea5b6cad552e04db74426a00c4a568, type: 2}
+  ability1: {fileID: 11400000, guid: b756b0992f9c6914283766e42eea2502, type: 2}
+  ability2: {fileID: 11400000, guid: 5cea5b6cad552e04db74426a00c4a568, type: 2}
   isSidearm: 1
   range: 20
   speed: 0.5

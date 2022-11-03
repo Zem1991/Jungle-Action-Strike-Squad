@@ -6,8 +6,8 @@ using UnityEngine;
 public class BackpackAbilitySet : AbilitySet
 {
     [Header("Backpack")]
-    [SerializeField] private AbilityInstance ability1;
-    [SerializeField] private AbilityInstance ability2;
+    [SerializeField] private AbilityInstance ability1 = null;
+    [SerializeField] private AbilityInstance ability2 = null;
 
     public BackpackAbilitySet(Character character) : base(character)
     {

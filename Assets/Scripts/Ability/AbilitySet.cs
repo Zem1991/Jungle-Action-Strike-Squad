@@ -15,6 +15,7 @@ public abstract class AbilitySet
 
     protected AbilityInstance CreateAbilityInstance(AbilityData abilityData, Item item = null)
     {
+        if (!abilityData) return null;
         return new AbilityInstance(abilityData, Character, item);
     }
 
@@ -25,6 +26,7 @@ public abstract class AbilitySet
         for (int index = 0; index < 8; index++)
         {
             AbilityInstance abilityInstance = GetFromIndex(index);
+            if (abilityInstance == null) continue;
             result.Add(index, abilityInstance);
         }
         return result;

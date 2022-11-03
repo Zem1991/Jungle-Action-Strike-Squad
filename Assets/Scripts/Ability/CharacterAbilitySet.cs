@@ -6,10 +6,10 @@ using UnityEngine;
 public class CharacterAbilitySet : AbilitySet
 {
     [Header("Character")]
-    [SerializeField] private AbilityInstance move;
-    [SerializeField] private AbilityInstance sneak;
-    [SerializeField] private AbilityInstance unarmedAttack;
-    [SerializeField] private AbilityInstance takedown;
+    [SerializeField] private AbilityInstance move = null;
+    [SerializeField] private AbilityInstance sneak = null;
+    [SerializeField] private AbilityInstance unarmedAttack = null;
+    [SerializeField] private AbilityInstance takedown = null;
     public AbilityInstance Move { get => move; private set => move = value; }
     public AbilityInstance Sneak { get => sneak; private set => sneak = value; }
     public AbilityInstance UnarmedAttack { get => unarmedAttack; private set => unarmedAttack = value; }
@@ -18,7 +18,6 @@ public class CharacterAbilitySet : AbilitySet
     public CharacterAbilitySet(Character character) : base(character)
     {
         AbilityDataHandler prefabs = AbilityDataHandler.Instance;
-
         Move = CreateAbilityInstance(prefabs.Move);
         Sneak = CreateAbilityInstance(prefabs.Sneak);
         UnarmedAttack = CreateAbilityInstance(prefabs.UnarmedAttack);

@@ -9,7 +9,7 @@ public class AbilityController : AbstractSingleton<AbilityController>, IReadable
     public AbilitySetType AbilitySetType { get => abilitySetType; private set => abilitySetType = value; }
 
     [Header("Current")]
-    [SerializeField] private AbilityInstance current;
+    [SerializeField] private AbilityInstance current = null;
     [SerializeField] private bool fromContext;
     public AbilityInstance Current { get => current; private set => current = value; }
     public bool FromContext { get => fromContext; private set => fromContext = value; }
@@ -24,7 +24,9 @@ public class AbilityController : AbstractSingleton<AbilityController>, IReadable
     {
         CommandController actionController = CommandController.Instance;
         if (actionController.HasCurrent()) return;
-        //UpdateInput();
+
+        if (Current == null) return;
+        //TODO: update Tile and Path here
     }
 
     public string ReadForUI()

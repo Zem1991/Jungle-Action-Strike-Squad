@@ -82,6 +82,13 @@ public class Resource
         return result;
     }
 
+    public int PercentToAmountCeil(int percent)
+    {
+        float amount = PercentToAmount(percent);
+        int result = Mathf.CeilToInt(amount);
+        return result;
+    }
+
     public bool CheckEnough(int amount)
     {
         return Current >= amount;

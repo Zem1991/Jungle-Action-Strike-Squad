@@ -15,7 +15,7 @@ public class AbilityUI : UIPanel
     [SerializeField] private Text itemAccuracy;
 
     [Header("Runtime")]
-    [SerializeField] private AbilityInstance ability;
+    [SerializeField] private AbilityInstance ability = null;
 
     protected override void Awake()
     {
